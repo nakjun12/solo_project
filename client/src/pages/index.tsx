@@ -16,6 +16,7 @@ export default function Home() {
       <main className="relative ">
         <div>
           <span className="focus-div">안녕</span>
+          {/* <span className="blur-div">안녕</span> */}
           <h1 className="text-3xl font-bold underline">Hello world!</h1>
         </div>
       </main>
