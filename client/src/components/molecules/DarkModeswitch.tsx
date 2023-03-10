@@ -25,15 +25,15 @@ const DarkModeSwitch = () => {
   const currentTheme = themes[currentIndex];
 
   return (
-    <div className="theme-switch">
+    <>
       <button
-        className="theme-switch--toggle"
+        className="mr-4 cursor-pointer"
         onClick={() => setTheme(nextTheme.name)}
         aria-label={`Change theme to ${nextTheme.title}`}
       >
-        <div className="theme-switch--label">{currentTheme.title}</div>
+        <div className="text-base font-bold">{currentTheme.title}</div>
       </button>
-    </div>
+    </>
   );
 };
 

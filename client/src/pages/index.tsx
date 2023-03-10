@@ -14,8 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative ">
-        <div className="focus-div">안녕</div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        <div>
+          <span className="focus-div">안녕</span>
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        </div>
       </main>
     </>
   );

@@ -9,7 +9,8 @@ export default function Header() {
     <div className="bg-red-600 items-center flex justify-between mx-auto max-w-6xl p-[2px] sm:py-6">
       <div className="flex">
         <MenuItem title="HOME" address="/" Icon={IoMdHome} />
-        <MenuItem title="명화" address="/masterpiece" Icon={GiHamburgerMenu} />
+        <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />
+        <MenuItem title="해외" address="/pop" />
       </div>
       <div className="flex items-center">
         <Search />
