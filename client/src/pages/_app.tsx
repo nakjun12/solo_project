@@ -1,13 +1,15 @@
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
+import type { AppProps } from "next/app";
 import Header from "@/components/organisms/Header";
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
-      <div className="mx-auto min-h-screen max-w-6xl bg-slate-400">
-        <Header />
-        <Component {...pageProps} />
+    <ThemeProvider enableSystem={false} disableTransitionOnChange>
+      <div className="bg-pageBG">
+        <div className="mx-auto max-w-6xl bg-pageBG  text-pageText transition-colors duration-300 min-h-screen select-none">
+          <Header />
+          <Component {...pageProps} />
+        </div>
       </div>
     </ThemeProvider>
   );

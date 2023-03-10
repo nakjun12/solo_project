@@ -2,13 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  .blur-div {
+    @apply fixed inset-0  bg-black bg-opacity-40 pointer-events-auto;
+    transition: opacity 0.15s linear;
+    backdrop-filter: blur(6px);
+  }
+  .focus-div {
+    color: red;
+  }
+  .focus-div:hover {
+    color: blue;
+  }
+}
+
+/* Variables */
 :root {
-  /* Your default theme */
-  --background: white;
-  --foreground: black;
+  --black: #000000;
+  --white: #ffffff;
+
+  --black-hsl: 0, 0%, 0%;
+  --white-hsl: 0, 0%, 100%;
+
+  --pageBG: #f4f4f0;
+  --pageText: #000000;
+
+  --pageBG-hsl: 60, 14%, 95%;
+  --pageText-hsl: 0, 0%, 0%;
 }
 
 [data-theme="dark"] {
-  --background: black;
-  --foreground: white;
+  --pageBG: #000000;
+  --pageText: #f4f4f0;
+
+  --pageBG-hsl: 0, 0%, 0%;
+  --pageText-hsl: 60, 14%, 95%;
+}
+
+[data-theme="metal"] {
+  --pageBG: #000000;
+  --pageText: #fb1b15;
+
+  --pageBG-hsl: 0, 0%, 0%;
+  --pageText-hsl: 2, 92%, 53%;
 }

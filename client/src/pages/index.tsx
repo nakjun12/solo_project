@@ -2,13 +2,9 @@ import Head from "next/head";
 
 import { Inter } from "next/font/google";
 
-import { useTheme } from "next-themes";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-
   return (
     <>
       <Head>
@@ -17,9 +13,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <button onClick={() => setTheme("light")}>Light Mode</button>
-      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+      <main className="relative ">
+        <div className="focus-div">안녕</div>
+        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      </main>
     </>
   );
 }
+//https://www.npmjs.com/package/classnames
