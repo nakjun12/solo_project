@@ -3,8 +3,10 @@ import { IoMdHome } from "react-icons/Io";
 import DarkModeSwitch from "../molecules/DarkModeswitch";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "../molecules/Search";
-
+import { useSiteContext } from "@/lib/Context";
 export default function Header() {
+  const menuValue = useSiteContext();
+  console.log(menuValue);
   return (
     <div className="bg-red-600 items-center flex justify-between mx-auto max-w-6xl p-[2px] sm:py-6">
       <div className="flex">

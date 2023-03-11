@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IconType } from "react-icons/lib";
+import { useToggleMenu } from "@/lib/Context";
 
 export default function MenuItem({
   title,
@@ -10,9 +11,15 @@ export default function MenuItem({
   address: string;
   Icon?: IconType;
 }) {
+  const toggleMenu = useToggleMenu();
+
   return (
     <div>
-      <Link href={address} className="mx-4 lg:mx-6 hover:text-amber-600">
+      <Link
+        href={address}
+        className="mx-4 lg:mx-6 hover:text-amber-600"
+        onClick={() => toggleMenu(true, title)}
+      >
         {Icon && (
           <Icon
             size={"20px"}
