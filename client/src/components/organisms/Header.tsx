@@ -4,20 +4,28 @@ import DarkModeSwitch from "../molecules/DarkModeswitch";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "../molecules/Search";
 import { useSiteContext } from "@/lib/Context";
+import { title } from "process";
 export default function Header() {
   const menuValue = useSiteContext();
-  console.log(menuValue);
+  const { isOpen, title } = menuValue;
+
   return (
-    <div className="bg-red-600 items-center flex justify-between mx-auto max-w-6xl p-[2px] sm:py-6">
-      <div className="flex">
-        <MenuItem title="HOME" address="/" Icon={IoMdHome} />
-        <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />
-        <MenuItem title="해외" address="/pop" />
+    <>
+      <div className="">
+        <div className="headerStyle">
+          <div className="flex z-20">
+            <MenuItem title="HOME" address="/" Icon={IoMdHome} />
+            <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />
+            <MenuItem title="해외" address="/pop" />
+          </div>
+          <div className="flex items-center">
+            <Search />
+            <DarkModeSwitch />
+          </div>
+        </div>
+        {isOpen && title !== "HOME" && <div>안녕</div>}
       </div>
-      <div className="flex items-center">
-        <Search />
-        <DarkModeSwitch />
-      </div>
-    </div>
+      {/* <div className="blur-div" /> */}
+    </>
   );
 }

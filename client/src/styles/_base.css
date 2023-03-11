@@ -1,0 +1,23 @@
+@tailwind components;
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  .blur-div {
+    @apply fixed inset-0 z-10 bg-white bg-opacity-40 pointer-events-auto;
+    transition: opacity 0.15s linear;
+    backdrop-filter: blur(4px);
+  }
+  .focus-div {
+    background-color: red;
+    color: red;
+  }
+  .focus-div:hover {
+    color: blue;
+  }
+  .headerStyle {
+    @apply items-center flex justify-between mx-auto max-w-6xl p-[2px] sm:py-6;
+    border-bottom: 3px solid rgb(30 41 59);
+  }
+}

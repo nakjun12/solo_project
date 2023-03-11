@@ -18,7 +18,8 @@ export default function MenuItem({
       <Link
         href={address}
         className="mx-4 lg:mx-6 hover:text-amber-600"
-        onClick={() => toggleMenu(true, title)}
+        onClick={() => toggleMenu(false)}
+        onMouseOver={() => toggleMenu(true, title)}
       >
         {Icon && (
           <Icon
