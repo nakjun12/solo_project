@@ -20,7 +20,6 @@ const Site = ({ Component, pageProps, router }: AppProps) => {
 };
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  console.log(pageProps);
   return (
     <ThemeProvider enableSystem={false} disableTransitionOnChange>
       <SiteContextProvider>

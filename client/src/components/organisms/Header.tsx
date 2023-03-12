@@ -6,15 +6,22 @@ import Search from "../molecules/Search";
 import { useSiteContext } from "@/lib/Context";
 import DropDown from "../molecules/DropDown";
 import type { headerType } from "@/lib/Context";
+import { useRef, RefObject } from "react";
+import { useRect } from "@reach/rect";
 
 export default function Header() {
   const menuValue = useSiteContext();
   const { isOpen, title, dropDown }: headerType = menuValue;
+  const headerRef = useRef() as RefObject<HTMLDivElement>;
 
+  const headerRect = useRect(headerRef);
+  console.log(headerRect);
+  console.log(headerRef);
+  console.log("안녕");
   return (
     <>
       <div className="relative z-20 bg-pageBG">
-        <div className="headerStyle">
+        <div className="headerStyle" ref={headerRef}>
           <div className="flex">
             <MenuItem title="HOME" address="/" Icon={IoMdHome} />
             <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />

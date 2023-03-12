@@ -5,7 +5,6 @@ const DropDownList: React.FC<{ data: dropDownValue[]; isUp: boolean }> = ({
   data,
   isUp,
 }) => {
-  console.log(isUp);
   return (
     <div>
       {data.map((data, index) => {
