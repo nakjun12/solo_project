@@ -20,6 +20,6 @@
     @apply items-center bg-pageBG flex justify-between mx-auto max-w-6xl p-[2px] sm:py-6;
   }
   .drop-down {
-    @apply absolute z-20 inset-x-0 h-5 bg-pageBG;
+    @apply absolute z-20 inset-x-0 bg-pageBG;
   }
 }

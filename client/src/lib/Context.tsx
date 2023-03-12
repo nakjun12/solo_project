@@ -9,20 +9,33 @@ import {
 
 export type title = "국내" | "해외" | "HOME";
 
-type headerType = {
-  isOpen: boolean;
+export type dropDownValue = {
+  count: number;
+  name: string;
+};
+
+export type dropDownList = {
   title: title | null;
+  dropDownList: dropDownValue[];
+};
+
+export type headerType = {
+  isOpen?: boolean;
+  title: title | null;
+  dropDown: dropDownList[] | null;
 };
 
 type initialContext = {
   context: headerType;
   setContext: Dispatch<SetStateAction<headerType>>;
 };
+// 필요한 값이있다면 context 추가할것
 
 const initialContext: initialContext = {
   context: {
     isOpen: true,
     title: null,
+    dropDown: null,
   },
   setContext: () => null,
 };
@@ -34,6 +47,16 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   const [context, setContext] = useState<headerType>({
     isOpen: true,
     title: null,
+    dropDown: [
+      {
+        title: "국내",
+        dropDownList: [
+          { count: 4, name: "트로트" },
+          { count: 3, name: "힙합" },
+        ],
+      },
+      { title: "해외", dropDownList: [{ count: 3, name: "Pop송" }] },
+    ],
   });
 
   return (
@@ -63,6 +86,7 @@ function useToggleMenu() {
   async function toggleMenu(state: boolean, title: title | null = null) {
     setContext((prevState: headerType) => {
       return {
+        ...prevState,
         isOpen: state,
         title: title,
       };

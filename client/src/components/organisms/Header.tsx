@@ -5,10 +5,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "../molecules/Search";
 import { useSiteContext } from "@/lib/Context";
 import DropDown from "../molecules/DropDown";
+import type { headerType } from "@/lib/Context";
 
 export default function Header() {
   const menuValue = useSiteContext();
-  const { isOpen, title } = menuValue;
+  const { isOpen, title, dropDown }: headerType = menuValue;
 
   return (
     <>
@@ -27,7 +28,7 @@ export default function Header() {
       </div>
       {isOpen && title !== "HOME" && (
         <>
-          <DropDown title={title} />
+          <DropDown title={title} dropDown={dropDown} />
           <div className="blur-div" />
         </>
       )}
