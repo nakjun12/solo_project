@@ -4,16 +4,17 @@ import DarkModeSwitch from "../molecules/DarkModeswitch";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "../molecules/Search";
 import { useSiteContext } from "@/lib/Context";
-import { title } from "process";
+import DropDown from "../molecules/DropDown";
+
 export default function Header() {
   const menuValue = useSiteContext();
   const { isOpen, title } = menuValue;
 
   return (
     <>
-      <div className="">
+      <div className="relative z-20 bg-pageBG">
         <div className="headerStyle">
-          <div className="flex z-20">
+          <div className="flex">
             <MenuItem title="HOME" address="/" Icon={IoMdHome} />
             <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />
             <MenuItem title="해외" address="/pop" />
@@ -23,9 +24,13 @@ export default function Header() {
             <DarkModeSwitch />
           </div>
         </div>
-        {isOpen && title !== "HOME" && <div>안녕</div>}
       </div>
-      {/* <div className="blur-div" /> */}
+      {isOpen && title !== "HOME" && (
+        <>
+          <DropDown title={title} />
+          <div className="blur-div" />
+        </>
+      )}
     </>
   );
 }

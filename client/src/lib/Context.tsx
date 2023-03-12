@@ -7,9 +7,11 @@ import {
   SetStateAction,
 } from "react";
 
+export type title = "국내" | "해외" | "HOME";
+
 type headerType = {
   isOpen: boolean;
-  title: string | null;
+  title: title | null;
 };
 
 type initialContext = {
@@ -58,7 +60,7 @@ function useToggleMenu() {
     setContext,
   } = useContext(SiteContext);
 
-  async function toggleMenu(state: boolean, title: string | null = null) {
+  async function toggleMenu(state: boolean, title: title | null = null) {
     setContext((prevState: headerType) => {
       return {
         isOpen: state,
