@@ -17,7 +17,10 @@ export default function DropDown({ title, dropDown }: headerType) {
                 key={`${data.title}-${index}`}
                 className={cx("absolute", { invisible: data.title !== title })}
               >
-                <DropDownList data={data.dropDownList} />
+                <DropDownList
+                  isUp={data.title === title}
+                  data={data.dropDownList}
+                />
               </div>
             );
           })}

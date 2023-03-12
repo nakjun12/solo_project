@@ -22,4 +22,10 @@
   .drop-down {
     @apply absolute z-20 inset-x-0 bg-pageBG;
   }
+  .drop-npEvent {
+    @apply opacity-0 pointer-events-none;
+  }
+  .drop-downEvent {
+    @apply opacity-100 pointer-events-auto;
+  }
 }

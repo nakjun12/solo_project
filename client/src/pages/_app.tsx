@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import Header from "@/components/organisms/Header";
 import { SiteContextProvider } from "@/lib/Context";
-import cx from "classnames";
+
 import "../styles/tailwind.css";
 
 const Site = ({ Component, pageProps, router }: AppProps) => {
