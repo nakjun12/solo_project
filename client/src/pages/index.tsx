@@ -17,7 +17,7 @@ export default function Home() {
         <div>
           <span className="focus-div">안녕</span>
 
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+          <h1 className="mega-red--bg">Hello world!</h1>
         </div>
       </main>
     </>

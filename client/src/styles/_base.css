@@ -28,4 +28,7 @@
   .drop-downEvent {
     @apply opacity-100 pointer-events-auto;
   }
+  .drop-BG {
+    @apply hidden sm:block;
+  }
 }

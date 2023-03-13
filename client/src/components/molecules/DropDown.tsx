@@ -4,21 +4,25 @@ import cx from "classnames";
 import { useRef } from "react";
 import { useRect } from "@reach/rect";
 
-export default function DropDown({ title, dropDown }: headerType) {
+interface props extends headerType {
+  headerheight: number | undefined;
+}
+
+export default function DropDown({ title, dropDown, headerheight }: props) {
   const dropDownRef = useRef<HTMLDivElement | null>(null);
   const dropDownRect = useRect(dropDownRef);
-  console.log(dropDownRect);
-  console.log(dropDownRef);
-  console.log(title);
-  if (title === null) {
+
+  if (title === null || headerheight === undefined) {
     return null;
   }
+  console.log(dropDownRect);
+  console.log(headerheight);
   return (
     <nav className="drop-down">
       <div className="mx-auto max-w-6xl">
         <div className="mx-4 lg:mx-6 font-bold relative pb-4">
           {dropDown?.map((data: dropDownList, index: number) => {
-            const isTrue = data.title !== title;
+            const isTrue = data.title === title;
             return (
               <div
                 key={`${data.title}-${index}`}

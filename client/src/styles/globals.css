@@ -1,4 +1,7 @@
 /* Variables */
+@import "_base";
+@import "_nav";
+
 :root {
   --black: #000000;
   --white: #ffffff;
@@ -28,5 +31,3 @@
   --pageBG-hsl: 0, 0%, 0%;
   --pageText-hsl: 2, 92%, 53%;
 }
-
-@import "_base";

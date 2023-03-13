@@ -15,9 +15,7 @@ export default function Header() {
   const headerRef = useRef() as RefObject<HTMLDivElement>;
 
   const headerRect = useRect(headerRef);
-  console.log(headerRect);
-  console.log(headerRef);
-  console.log("안녕");
+  console.log(isOpen);
   return (
     <>
       <div className="relative z-20 bg-pageBG">
@@ -35,7 +33,11 @@ export default function Header() {
       </div>
       {isOpen && title !== "HOME" && (
         <>
-          <DropDown title={title} dropDown={dropDown} />
+          <DropDown
+            title={title}
+            dropDown={dropDown}
+            headerheight={headerRect?.height}
+          />
           <div className="blur-div" />
         </>
       )}

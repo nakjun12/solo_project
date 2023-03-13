@@ -45,7 +45,7 @@ const SiteContext = createContext(initialContext);
 //내려받을 준비함
 const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   const [context, setContext] = useState<headerType>({
-    isOpen: true,
+    isOpen: false,
     title: null,
     dropDown: [
       {
