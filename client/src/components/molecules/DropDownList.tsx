@@ -6,10 +6,10 @@ const DropDownList: React.FC<{ data: dropDownValue[]; isUp: boolean }> = ({
   isUp,
 }) => {
   return (
-    <div>
+    <ul>
       {data.map((data, index) => {
         return (
-          <div
+          <li
             key={`${data.name}-${index}`}
             className={cx(
               { "drop-downEvent": isUp },
@@ -18,10 +18,10 @@ const DropDownList: React.FC<{ data: dropDownValue[]; isUp: boolean }> = ({
           >
             {data.name}
             <span>{data.count}</span>
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 

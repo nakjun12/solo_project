@@ -14,7 +14,7 @@ export default function DropDown({ title, dropDown }: headerType) {
     return null;
   }
   return (
-    <div className="drop-down">
+    <nav className="drop-down">
       <div className="mx-auto max-w-6xl">
         <div className="mx-4 lg:mx-6 font-bold relative pb-4">
           {dropDown?.map((data: dropDownList, index: number) => {
@@ -34,7 +34,7 @@ export default function DropDown({ title, dropDown }: headerType) {
           })}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

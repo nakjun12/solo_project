@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <>
       <div className="relative z-20 bg-pageBG">
-        <div className="headerStyle" ref={headerRef}>
+        <header className="headerStyle" ref={headerRef}>
           <div className="flex">
             <MenuItem title="HOME" address="/" Icon={IoMdHome} />
             <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />
@@ -31,7 +31,7 @@ export default function Header() {
             <Search />
             <DarkModeSwitch />
           </div>
-        </div>
+        </header>
       </div>
       {isOpen && title !== "HOME" && (
         <>
