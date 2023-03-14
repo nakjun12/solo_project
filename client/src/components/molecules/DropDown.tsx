@@ -17,7 +17,7 @@ export default function DropDown({
   if (title === null || headerheight === undefined) {
     return null;
   }
-
+  console.log(dropDown);
   return (
     <nav className="inset-x-0 bg-pageBG">
       <div className="font-bold relative pb-4">
@@ -25,29 +25,29 @@ export default function DropDown({
           const isTrue = data.title === title;
           const dropDownRef = useRef<HTMLDivElement | null>(null);
           const dropDownRect = useRect(dropDownRef);
-          const [height, setheight] = useState<number>(40);
-
+          const [height, setheight] = useState<number>(10);
+          console.log(title, height);
           useEffect(() => {
-            if (dropDownRect?.height && headerheight) {
+            if (dropDownRect?.height && headerheight && isTrue) {
               setheight(Math.round(dropDownRect?.height + headerheight));
             }
             console.log("하이");
           }, [dropDownRect]); //null에서 바뀌고나서만 작동
+          //isTrue 추가해서 초기에도 변동되게함
 
           useEffect(() => {
             if (!isTrue) {
               setheight(Math.round(headerheight));
+              // console.log("headr", headerheight);
             }
             if (isTrue) {
               if (dropDownRect?.height && headerheight) {
                 setheight(Math.round(dropDownRect?.height + headerheight));
+                // console.log("headr2", dropDownRect?.height + headerheight);
               }
             }
-            console.log("방가");
           }, [isTrue]); //트루값이 변할때마다 작동
 
-          console.log(height);
-          console.log(isOpen);
           return (
             <Fragment key={`${data.title}-${index}`}>
               <div
