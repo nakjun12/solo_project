@@ -51,7 +51,7 @@ export default function DropDown({
           return (
             <Fragment key={`${data.title}-${index}`}>
               <div
-                className={`absolute inset-x-0 z-20 h-3 bg-pageBG ${
+                className={`absolute top-full inset-x-0 z-20 h-3 backdrop bg-pageBG ${
                   isTrue ? "opacity-100" : "opacity-0"
                 }`}
                 style={{ transform: `scaleY(${height})` }}

@@ -31,8 +31,7 @@
   }
   .backdrop {
     will-change: transform;
-    transform-origin: 0 0;
+
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    content: "";
   }
 }
