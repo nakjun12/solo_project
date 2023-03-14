@@ -4,7 +4,6 @@ module.exports = {
 
   theme: {
     colors: {
-      //자식다 먹임
       inherit: "inherit", //부모 요소 상속
       transparent: "transparent", // 투명
       current: "currentColor", //글자색 그대로사용
@@ -12,13 +11,30 @@ module.exports = {
       white: "#FFFFFF",
       pageBG: "var(--pageBG)", //테일윈드 추가
       pageText: "var(--pageText)",
+      color: "#1a0dab",
     },
     extend: {
       padding: {
         "2px": "2px",
       },
     },
+    scale: new Array(161)
+      .fill()
+      .map((_, i) => i)
+      .reduce((acc, val) => {
+        acc[val] = `${val}`;
+        return acc;
+      }, {}),
+
+    spacing: new Array(351)
+      .fill()
+      .map((_, i) => i)
+      .reduce((acc, val) => {
+        acc[val] = `${val / 10}rem`;
+        return acc;
+      }, {}),
   },
+
   plugins: [],
   darkMode: "class",
 };

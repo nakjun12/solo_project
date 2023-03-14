@@ -6,22 +6,19 @@
     @apply hidden sm:block;
     /*웹반응형*/
     &::before {
-      @apply absolute top-full inset-x-0 h-1 bg-pageBG;
+      @apply absolute top-full inset-x-0 z-20 h-3 bg-pageBG;
       will-change: transform;
       transform-origin: 0 0;
-      transform: scaleY(var(--h));
+
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       content: "";
       /*검은색에 근거함*/
       /* account for the header when styled as an overlay that hasn't scrolled */
-      .is-overlay:not(.has-bg) & {
-        @apply top-0;
-      }
     }
 
     &::after {
-      @apply absolute top-full inset-x-0 -mt-1 border-t;
-      transform: translate3d(0, var(--hpx), 0);
+      @apply absolute top-full inset-x-0 z-20 -mt-1 border-t;
+      transform: translate3d(0, 50px, 0);
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       content: "";
       /*밑줄 치는데 근거함*/

@@ -5,9 +5,9 @@
     @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
   }
   .blur-div {
-    @apply fixed inset-0 bg-white z-10 bg-opacity-40 pointer-events-auto;
+    @apply bg-white bg-opacity-40 pointer-events-auto;
     transition: opacity 0.15s linear;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
   }
   .focus-div {
     background-color: red;
@@ -17,11 +17,9 @@
     color: blue;
   }
   .headerStyle {
-    @apply items-center bg-pageBG flex justify-between mx-auto max-w-6xl p-[2px] sm:py-6;
+    @apply items-center bg-pageBG flex justify-between mx-auto p-[2px] sm:py-6;
   }
-  .drop-down {
-    @apply absolute z-20 inset-x-0 bg-pageBG;
-  }
+
   .drop-npEvent {
     @apply opacity-0 pointer-events-none;
   }
@@ -30,5 +28,11 @@
   }
   .drop-BG {
     @apply hidden sm:block;
+  }
+  .backdrop {
+    will-change: transform;
+    transform-origin: 0 0;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    content: "";
   }
 }
