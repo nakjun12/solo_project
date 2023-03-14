@@ -3,6 +3,8 @@ import DropDownList from "./DropDownList";
 import cx from "classnames";
 import { useRef, useState, useEffect, Fragment } from "react";
 import { useRect } from "@reach/rect";
+import { motion } from "framer-motion";
+import { swipeAnim } from "@/lib/Animate";
 
 interface props extends headerType {
   headerheight: number | undefined;
@@ -17,7 +19,7 @@ export default function DropDown({
   if (title === null || headerheight === undefined) {
     return null;
   }
-  console.log(dropDown);
+
   return (
     <nav className="inset-x-0 bg-pageBG">
       <div className="font-bold relative pb-4">
@@ -26,12 +28,11 @@ export default function DropDown({
           const dropDownRef = useRef<HTMLDivElement | null>(null);
           const dropDownRect = useRect(dropDownRef);
           const [height, setheight] = useState<number>(10);
-          console.log(title, height);
+
           useEffect(() => {
             if (dropDownRect?.height && headerheight && isTrue) {
               setheight(Math.round(dropDownRect?.height + headerheight));
             }
-            console.log("하이");
           }, [dropDownRect]); //null에서 바뀌고나서만 작동
           //isTrue 추가해서 초기에도 변동되게함
 
