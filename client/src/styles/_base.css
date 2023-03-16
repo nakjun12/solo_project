@@ -7,7 +7,7 @@
   .blur-div {
     @apply bg-white bg-opacity-40 pointer-events-auto;
     transition: opacity 0.15s linear;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
   }
   .focus-div {
     background-color: red;
@@ -33,5 +33,13 @@
     will-change: transform;
 
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .underline {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: green;
   }
 }

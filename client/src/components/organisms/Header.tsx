@@ -8,6 +8,7 @@ import DropDown from "../molecules/DropDown";
 import type { headerType } from "@/lib/Context";
 import { useRef, RefObject } from "react";
 import { useRect } from "@reach/rect";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const menuValue = useSiteContext();
@@ -15,18 +16,31 @@ export default function Header() {
   const headerRef = useRef() as RefObject<HTMLDivElement>;
 
   const headerRect = useRect(headerRef);
-
+  console.log(title);
   return (
     <>
       <div className="relative z-30 bg-pageBG">
         <header className="max-w-6xl headerStyle" ref={headerRef}>
-          <div className="flex">
-            <MenuItem title="HOME" address="/" Icon={IoMdHome} />
-            <MenuItem title="국내" address="/domestic" Icon={GiHamburgerMenu} />
-            <MenuItem title="해외" address="/pop" />
+          <div className="flex relative">
+            <MenuItem
+              title="HOME"
+              address="/"
+              Icon={IoMdHome}
+              selectTitle={title}
+            />
+
+            <MenuItem
+              title="국내"
+              address="/domestic"
+              Icon={GiHamburgerMenu}
+              selectTitle={title}
+            />
+
+            <MenuItem title="해외" address="/pop" selectTitle={title} />
           </div>
+
           <div className="flex items-center">
-            <Search />
+            <Search isOpen={isOpen}/>
             <DarkModeSwitch />
           </div>
         </header>

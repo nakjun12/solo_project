@@ -3,7 +3,7 @@ import DropDownList from "./DropDownList";
 import cx from "classnames";
 import { useRef, useState, useEffect, Fragment } from "react";
 import { useRect } from "@reach/rect";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { swipeAnim } from "@/lib/Animate";
 
 interface props extends headerType {
@@ -19,7 +19,9 @@ export default function DropDown({
   if (title === null || headerheight === undefined) {
     return null;
   }
-
+  console.log(title);
+  console.log(dropDown);
+  //다음에 해야할 것 서치 리스트 만들기
   return (
     <nav className="inset-x-0 bg-pageBG">
       <div className="font-bold relative pb-4">
@@ -63,10 +65,16 @@ export default function DropDown({
                   className={cx("absolute z-30", { invisible: !isTrue })}
                   ref={(ref) => (dropDownRef.current = ref)}
                 >
-                  <DropDownList
-                    isUp={data.title === title}
-                    data={data.dropDownList}
-                  />
+                  <m.div
+                    initial="hide"
+                    animate={isTrue ? "show" : "hide"}
+                    variants={swipeAnim}
+                  >
+                    <DropDownList
+                      isUp={data.title === title}
+                      data={data.dropDownList}
+                    />
+                  </m.div>
                 </div>
               </div>
               <div className="fixed inset-0 z-10 blur-div"></div>

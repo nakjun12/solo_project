@@ -7,7 +7,7 @@ import {
   SetStateAction,
 } from "react";
 
-export type title = "국내" | "해외" | "HOME";
+export type title = "국내" | "해외" | "HOME" | "Search";
 
 export type dropDownValue = {
   count: number;
