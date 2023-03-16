@@ -16,7 +16,7 @@ export type dropDownValue = {
 
 export type dropDownList = {
   title: title | null;
-  dropDownList: dropDownValue[];
+  dropDownList?: dropDownValue[];
 };
 
 export type headerType = {
@@ -56,6 +56,7 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
         ],
       },
       { title: "해외", dropDownList: [{ count: 3, name: "Pop송" }] },
+      { title: "Search" },
     ],
   });
 

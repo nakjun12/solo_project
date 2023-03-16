@@ -7,7 +7,7 @@
   .blur-div {
     @apply bg-white bg-opacity-40 pointer-events-auto;
     transition: opacity 0.15s linear;
-    /* backdrop-filter: blur(10px); */
+    backdrop-filter: blur(3px);
   }
   .focus-div {
     background-color: red;
@@ -40,6 +40,6 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: green;
+    background: var(--pageText);
   }
 }

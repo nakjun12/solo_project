@@ -5,6 +5,7 @@ import { useRef, useState, useEffect, Fragment } from "react";
 import { useRect } from "@reach/rect";
 import { m } from "framer-motion";
 import { swipeAnim } from "@/lib/Animate";
+import SearchForm from "./SearchForm";
 
 interface props extends headerType {
   headerheight: number | undefined;
@@ -19,6 +20,7 @@ export default function DropDown({
   if (title === null || headerheight === undefined) {
     return null;
   }
+
   console.log(title);
   console.log(dropDown);
   //다음에 해야할 것 서치 리스트 만들기
@@ -70,10 +72,14 @@ export default function DropDown({
                     animate={isTrue ? "show" : "hide"}
                     variants={swipeAnim}
                   >
-                    <DropDownList
-                      isUp={data.title === title}
-                      data={data.dropDownList}
-                    />
+                    {data.dropDownList ? (
+                      <DropDownList
+                        isUp={data.title === title}
+                        data={data.dropDownList}
+                      />
+                    ) : (
+                      <SearchForm />
+                    )}
                   </m.div>
                 </div>
               </div>

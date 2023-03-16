@@ -13,6 +13,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <main className="relative ">
         <div>
           <span className="focus-div">안녕</span>
@@ -24,3 +25,4 @@ export default function Home() {
   );
 }
 //https://www.npmjs.com/package/classnames
+//헤드 설정 잊지말것
