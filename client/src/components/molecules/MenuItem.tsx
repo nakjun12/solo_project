@@ -12,7 +12,7 @@ export default function MenuItem({
 }: {
   title: title;
   address: string;
-  Icon?: IconType;
+  Icon: IconType | null;
   selectTitle?: string | null;
 }) {
   const toggleMenu = useToggleMenu();

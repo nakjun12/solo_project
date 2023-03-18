@@ -8,39 +8,50 @@ import DropDown from "../molecules/DropDown";
 import type { headerType } from "@/lib/Context";
 import { useRef, RefObject } from "react";
 import { useRect } from "@reach/rect";
-import { motion } from "framer-motion";
+import type { MenuItemType } from "@/lib/TypeList";
 
 export default function Header() {
-  const menuValue = useSiteContext();
-  const { isOpen, title, dropDown }: headerType = menuValue;
+  const { isOpen, title, dropDown }: headerType = useSiteContext();
   const headerRef = useRef() as RefObject<HTMLDivElement>;
-
   const headerRect = useRect(headerRef);
-  console.log(title);
+
+  const menuItems: MenuItemType[] = [
+    {
+      title: "HOME",
+      address: "/",
+      Icon: IoMdHome,
+    },
+    {
+      title: "국내",
+      address: "/domestic",
+      Icon: GiHamburgerMenu,
+    },
+    {
+      title: "해외",
+      address: "/pop",
+      Icon: null,
+    },
+  ];
+
   return (
     <>
       <div className="relative z-30 bg-pageBG">
         <header className="max-w-6xl headerStyle" ref={headerRef}>
           <div className="flex relative">
-            <MenuItem
-              title="HOME"
-              address="/"
-              Icon={IoMdHome}
-              selectTitle={title}
-            />
-
-            <MenuItem
-              title="국내"
-              address="/domestic"
-              Icon={GiHamburgerMenu}
-              selectTitle={title}
-            />
-
-            <MenuItem title="해외" address="/pop" selectTitle={title} />
+            {menuItems &&
+              menuItems.map((item: MenuItemType) => (
+                <MenuItem
+                  key={item.title}
+                  title={item.title}
+                  address={item.address}
+                  Icon={item.Icon}
+                  selectTitle={title}
+                />
+              ))}
           </div>
 
           <div className="flex items-center">
-            <Search isOpen={isOpen}/>
+            <Search isOpen={isOpen} />
             <DarkModeSwitch />
           </div>
         </header>

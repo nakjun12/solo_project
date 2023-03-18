@@ -11,7 +11,6 @@ const themes = [
 const DarkModeSwitch = () => {
   const hasMounted = useHasMounted();
   const { theme, setTheme } = useTheme();
-
   // Make sure it's client-only
   if (!hasMounted || !theme) return null;
 
@@ -78,3 +77,4 @@ export default DarkModeSwitch;
 //     </>
 //   );
 // }
+//색깔바뀌면 여기만 렌더링

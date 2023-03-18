@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ferrari Testarossa
+* source:	https://sketchfab.com/3d-models/ferrari-testarossa-f7b89f61ad934fa68f29e834bf355e44
+* author:	Flamestroke (https://sketchfab.com/Flamestroke)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ferrari Testarossa" (https://sketchfab.com/3d-models/ferrari-testarossa-f7b89f61ad934fa68f29e834bf355e44) by Flamestroke (https://sketchfab.com/Flamestroke) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
