@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import type { dropDownValue } from "@/lib/Context";
+import type { dropDownValue } from "@/lib/context.tsx/MenuContext";
 const DropDownList: React.FC<{ data: dropDownValue[]; isUp: boolean }> = ({
   data,
   isUp,

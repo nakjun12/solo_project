@@ -1,9 +1,11 @@
 import Stopwatch from "@/components/molecules/StopWatch";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function index() {
   const [answerValue, setanswerValue] = useState<string>("");
   const answerinputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {}, [answerValue]);
+
   console.log(answerinputRef);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

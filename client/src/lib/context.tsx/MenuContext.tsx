@@ -21,22 +21,39 @@ export type dropDownList = {
 export type headerType = {
   isOpen?: boolean;
   title: title | null;
-  dropDown: dropDownList[] | null;
+  dropDown: dropDownList[] | null; //목록
 };
 
 type initialContext = {
   context: headerType;
   setContext: Dispatch<SetStateAction<headerType>>;
+  toggleState: boolean;
+  toggle: () => void;
 };
 // 필요한 값이있다면 context 추가할것
 
+const dropDownDummy: dropDownList[] = [
+  {
+    title: "국내",
+    dropDownList: [
+      { count: 4, name: "트로트" },
+      { count: 3, name: "힙합" },
+    ],
+  },
+  { title: "해외", dropDownList: [{ count: 3, name: "Pop송" }] },
+  { title: "Search" },
+];
+
 const initialContext: initialContext = {
+  //초기값
   context: {
     isOpen: true,
     title: null,
     dropDown: null,
   },
   setContext: () => null,
+  toggleState: false, //추가
+  toggle: () => {},
 };
 
 //초기값넣어줌
@@ -46,24 +63,20 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   const [context, setContext] = useState<headerType>({
     isOpen: false,
     title: null,
-    dropDown: [
-      {
-        title: "국내",
-        dropDownList: [
-          { count: 4, name: "트로트" },
-          { count: 3, name: "힙합" },
-        ],
-      },
-      { title: "해외", dropDownList: [{ count: 3, name: "Pop송" }] },
-      { title: "Search" },
-    ],
+    dropDown: dropDownDummy,
   });
+  const [toggleState, setToggleState] = useState<boolean>(false);
+  const toggle = () => {
+    setToggleState(!toggleState);
+  };
 
   return (
     <SiteContext.Provider
       value={{
         context,
         setContext,
+        toggleState,
+        toggle,
       }}
     >
       {children}
@@ -71,9 +84,9 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   );
 };
 
-function useSiteContext() {
-  const { context } = useContext(SiteContext);
-  return context;
+function startContext() {
+  const { toggleState } = useContext(SiteContext);
+  return toggleState;
 } //현재상황 보여줌
 
 //수정해주는 토글
@@ -95,4 +108,21 @@ function useToggleMenu() {
   return toggleMenu;
 }
 
-export { SiteContextProvider, useSiteContext, useToggleMenu };
+function useSiteContext() {
+  const { context } = useContext(SiteContext);
+  return context;
+}
+
+const useToggleStart = () => {
+  const { toggle } = useContext(SiteContext);
+
+  return toggle;
+};
+
+export {
+  SiteContextProvider,
+  useSiteContext,
+  useToggleMenu,
+  useToggleStart,
+  startContext,
+};

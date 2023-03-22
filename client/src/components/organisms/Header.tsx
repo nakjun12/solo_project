@@ -3,9 +3,9 @@ import { IoMdHome } from "react-icons/Io";
 import DarkModeSwitch from "../molecules/DarkModeswitch";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "../molecules/Search";
-import { useSiteContext } from "@/lib/Context";
+import { useSiteContext } from "@/lib/context.tsx/MenuContext";
 import DropDown from "../molecules/DropDown";
-import type { headerType } from "@/lib/Context";
+import type { headerType } from "@/lib/context.tsx/MenuContext";
 import { useRef, RefObject } from "react";
 import { useRect } from "@reach/rect";
 import { motion } from "framer-motion";
@@ -40,7 +40,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center">
-            <Search isOpen={isOpen}/>
+            <Search isOpen={isOpen} />
             <DarkModeSwitch />
           </div>
         </header>

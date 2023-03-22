@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import Header from "@/components/organisms/Header";
-import { SiteContextProvider } from "@/lib/Context";
+import { SiteContextProvider } from "@/lib/context.tsx/MenuContext";
 import { LazyMotion, domAnimation, AnimatePresence, m } from "framer-motion";
 import { pageTransitionAnim } from "@/lib/Animate";
 import { Inter } from "next/font/google";
