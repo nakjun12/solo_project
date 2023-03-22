@@ -2,6 +2,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
+
 function Model(props: any) {
   const gltf = useLoader(GLTFLoader, "/3d/ferrari_testarossa/scene.gltf");
   return <primitive object={gltf.scene} {...props} />;

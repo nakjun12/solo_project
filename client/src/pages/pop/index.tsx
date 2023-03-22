@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import Box from "@/lib/Box";
+import Box from "@/lib/3D/Box";
 
 export default function Home() {
   return (
