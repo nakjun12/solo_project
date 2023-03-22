@@ -16,3 +16,6 @@ export default function index() {
     </main>
   );
 }
+
+//릴레이
+// 하나씩 푸는 것

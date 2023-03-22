@@ -68,3 +68,4 @@ export default function Quiz({}: Props) {
     </>
   );
 }
+//stop워치 이동할것임
