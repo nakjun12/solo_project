@@ -1,38 +1,17 @@
 import Stopwatch from "@/components/molecules/StopWatch";
 import { useRef, useState, useEffect } from "react";
+import Quiz from "@/components/molecules/Quiz";
 
 export default function index() {
-  const [answerValue, setanswerValue] = useState<string>("");
-  const answerinputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {}, [answerValue]);
-
-  console.log(answerinputRef);
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); //버블링 차단
-    const { current } = answerinputRef;
-    if (!current) return;
-    else setanswerValue(current.value);
-    current.value = "";
-  };
-
   return (
-    <main className="flex">
-      <div>
+    <main>
+      <div className="flex">
         <article></article>
         <section>
-          <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              ref={answerinputRef}
-              placeholder="정답을 일력해주세요"
-            ></input>
-            <button type="submit">입력</button>
-          </form>
-          {answerValue}
+          <Quiz />
+          <Stopwatch />
         </section>
       </div>
-      <Stopwatch />
       index
     </main>
   );
