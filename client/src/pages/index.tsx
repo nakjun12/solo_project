@@ -1,8 +1,6 @@
 import Head from "next/head";
 
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
   return (
@@ -13,16 +11,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className="relative ">
-        <div>
-          <span className="focus-div">안녕</span>
-
-          <h1 className="">Hello world!</h1>
-        </div>
+        <div>abcdABCD구글폰트 적용되었나요?</div>
+        <div>ABCDabcd구글폰트 적용안되었어요</div>
       </main>
     </>
   );
 }
-//https://www.npmjs.com/package/classnames
+
 //헤드 설정 잊지말것

@@ -4,8 +4,9 @@ import type { AppProps } from "next/app";
 import Header from "@/components/organisms/Header";
 import { SiteContextProvider } from "@/lib/Context";
 import { LazyMotion, domAnimation, AnimatePresence, m } from "framer-motion";
-import { pageTransitionAnim, pageTransitionSpeed } from "@/lib/Animate";
-
+import { pageTransitionAnim } from "@/lib/Animate";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
 import "../styles/tailwind.css";
 
 const Site = ({ Component, pageProps, router }: AppProps) => {

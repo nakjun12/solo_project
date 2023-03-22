@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import styles from "./Stopwatch.module.css";
+import playTickSound from "../atmos/TickSound";
 
-const Stopwatch = () => {
+interface props {
+  isStart?: boolean;
+}
+
+const Stopwatch = ({ isStart = false }: props) => {
   const [time, setTime] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(isStart);
+  const [isSoundOn, setIsSoundOn] = useState(true);
 
   useEffect(() => {
     const interval: NodeJS.Timeout | null = isActive
@@ -20,16 +26,10 @@ const Stopwatch = () => {
   }, [isActive]);
 
   useEffect(() => {
-    if (time !== 0) {
+    if (time !== 0 && time % 2 === 0 && isSoundOn) {
       playTickSound();
     }
-  }, [time]);
-
-  const playTickSound = () => {
-    //수정요함
-    const tickSound = new Audio("/tickSound.mp3");
-    tickSound.play();
-  };
+  }, [time, isSoundOn]);
 
   const handleStartStop = () => {
     setIsActive((prevIsActive) => !prevIsActive);
@@ -38,6 +38,10 @@ const Stopwatch = () => {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
+  };
+
+  const handleToggleSound = () => {
+    setIsSoundOn((prevIsSoundOn) => !prevIsSoundOn);
   };
 
   return (
@@ -51,6 +55,9 @@ const Stopwatch = () => {
       </button>
       <button className={styles.button} onClick={handleReset}>
         Reset
+      </button>
+      <button className={styles.button} onClick={handleToggleSound}>
+        {isSoundOn ? "Turn Sound Off" : "Turn Sound On"}
       </button>
     </div>
   );
