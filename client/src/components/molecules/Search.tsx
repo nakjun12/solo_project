@@ -1,5 +1,5 @@
 import { AiOutlineSearch } from "react-icons/ai";
-import { useToggleMenu } from "@/lib/context.tsx/MenuContext";
+import { useToggleMenu } from "@/lib/context/MenuContext";
 import { useState } from "react";
 
 export default function Search({ isOpen }: { isOpen: boolean | undefined }) {

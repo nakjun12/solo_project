@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IconType } from "react-icons/lib";
-import { useToggleMenu } from "@/lib/context.tsx/MenuContext";
-import type { title } from "@/lib/context.tsx/MenuContext";
+import { useToggleMenu } from "@/lib/context/MenuContext";
+import type { title } from "@/lib/context/MenuContext";
 import { motion } from "framer-motion";
 
 export default function MenuItem({

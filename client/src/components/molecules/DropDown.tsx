@@ -1,4 +1,4 @@
-import type { headerType, dropDownList } from "@/lib/context.tsx/MenuContext";
+import type { headerType, dropDownList } from "@/lib/context/MenuContext";
 import DropDownList from "./DropDownList";
 import cx from "classnames";
 import { useRef, useState, useEffect, Fragment } from "react";
