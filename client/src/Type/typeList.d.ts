@@ -13,3 +13,5 @@ export interface MenuItemType {
   address: string;
   Icon: IconType | null;
 }
+
+export type Level = "전체" | "고급" | "중급" | "초급";

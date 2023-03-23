@@ -56,7 +56,6 @@ const Stopwatch = ({
       setTime(0);
       if (current) {
         current.value = "";
-        console.log("시바");
       }
     }
   }; //올리지말지 고민할것

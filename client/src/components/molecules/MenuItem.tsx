@@ -31,16 +31,16 @@ export default function MenuItem({
             className="text-2xl overflow-visible sm:hidden mx-4 "
           /> //나중에 모바일 추가
         )}
-        <p
+        <div
           className="hidden font-bold sm:inline my-2 text-base"
           onClick={() => toggleMenu(false)}
-          onMouseOver={() => toggleMenu(true, title)}
+          onMouseMove={() => toggleMenu(true, title)}
         >
           {title}
-        </p>
-        {isUnder ? (
-          <motion.div className="sm:underline" layoutId="underline" />
-        ) : null}
+          {isUnder ? (
+            <motion.div className="sm:underline" layoutId="underline" />
+          ) : null}
+        </div>
       </Link>
     </div>
   );

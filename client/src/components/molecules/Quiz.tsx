@@ -2,8 +2,8 @@ import { quizData } from "@/lib/Dummy";
 import { useRef, useState, useEffect } from "react";
 import type { Quiz } from "@/Type/typeList";
 import Stopwatch from "@/components/molecules/StopWatch";
-
-type level = "전체" | "고급" | "중급" | "초급";
+import RadioButton from "../atmos/RadioButton";
+import type { Level } from "@/Type/typeList";
 
 type Props = {};
 
@@ -11,7 +11,7 @@ export default function Quiz({}: Props) {
   const [answerValue, setanswerValue] = useState<string>("");
   const [quiz, setQuiz] = useState<Quiz>();
   const [next, setNext] = useState<boolean>(false);
-  const [level, setlevel] = useState<level>("전체");
+  const [level, setlevel] = useState<Level>("전체");
   const answerinputRef = useRef<HTMLInputElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
@@ -27,10 +27,12 @@ export default function Quiz({}: Props) {
 
       return el.level === level;
     });
-    const index = Math.floor(Math.random() * filterQuiz.length) + 1; //length 5면, 0~4까지 +1해서 1~5까지
-    const nextQuiz: Quiz | undefined = quizList.find((el) => {
-      return el.id === index;
+
+    const quizIndex = Math.floor(Math.random() * filterQuiz.length); //length 5면, 0~4까지 +1해서 1~5까지
+    const nextQuiz: Quiz | undefined = filterQuiz.find((el, index) => {
+      return index === quizIndex;
     });
+
     setQuiz(nextQuiz);
     setTime(0);
   }, [next, isActive, level]);
@@ -90,6 +92,7 @@ export default function Quiz({}: Props) {
             setTime={setTime}
             current={current}
           />
+          <RadioButton level={level} setlevel={setlevel} />
         </nav>
       </div>
     </>

@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
 import "../styles/tailwind.css";
 
 const Site = ({ Component, pageProps, router }: AppProps) => {
-  console.log(router._inFlightRoute);
   return (
     <LazyMotion features={domAnimation}>
       <AnimatePresence mode="wait">
