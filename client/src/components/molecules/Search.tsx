@@ -1,16 +1,20 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useToggleMenu } from "@/lib/context/MenuContext";
 import { useState } from "react";
+import type { title } from "@/lib/context/MenuContext";
 
-export default function Search({ isOpen }: { isOpen: boolean | undefined }) {
-  const [isSearch, SetisSearch] = useState<boolean>(true);
+export default function Search({ title }: { title: title | null }) {
   const toggleMenu = useToggleMenu();
-
   const searchToggle = () => {
-    if (!isSearch) toggleMenu(true, "Search");
-    if (isSearch) toggleMenu(false);
-    SetisSearch(!isSearch);
-  };
+    if (title !== "Search") {
+      toggleMenu(true, "Search");
+    } else if (title === "Search") {
+      toggleMenu(false);
+    }
+
+    //유동적으로
+    // TT 닫혀야함, FF때 열려야함 FT 열려야함 문제는 TT일때 열려야있는 상황과 닫혀있는 상황임 TF인 상황에도 열려야함
+  }; // 토글이 다른걸로 바꼈을때 대처를 해야함
 
   return (
     <div className="mx-4 cursor-pointer" onClick={() => searchToggle()}>

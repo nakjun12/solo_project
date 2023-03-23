@@ -99,4 +99,4 @@ export default function DropDown({
 //abosolute로 설정
 //블락으로 최상위 관리함
 //그아래는 vi
-//최하위는 opa
+//최하위는 opacity

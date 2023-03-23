@@ -51,7 +51,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center">
-            <Search isOpen={isOpen} />
+            <Search title={title} />
             <DarkModeSwitch />
           </div>
         </header>
@@ -74,3 +74,4 @@ export default function Header() {
 //relatvie는 각자의 공간을 존중해준다.
 //relative fixed인 경우 fixed는 relative 위로 올 수 있다 z-index가 높으면
 //z-index가 높아도 fixed가 위에 쌓인다.
+//메뉴가 아닌 드랍다운에서 넘어가도록 수정
