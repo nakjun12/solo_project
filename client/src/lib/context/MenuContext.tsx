@@ -6,7 +6,7 @@ import {
   SetStateAction,
 } from "react";
 
-export type title = "국내" | "해외" | "HOME" | "Search";
+export type title = "퀴즈" | "화상면접" | "HOME" | "Search";
 
 export type dropDownValue = {
   count: number;
@@ -34,13 +34,13 @@ type initialContext = {
 
 const dropDownDummy: dropDownList[] = [
   {
-    title: "국내",
+    title: "퀴즈",
     dropDownList: [
-      { count: 4, name: "트로트" },
-      { count: 3, name: "힙합" },
+      { count: 4, name: "주관식" },
+      { count: 3, name: "객관식" },
     ],
   },
-  { title: "해외", dropDownList: [{ count: 3, name: "Pop송" }] },
+  { title: "화상면접", dropDownList: [{ count: 3, name: "기술질문" }] },
   { title: "Search" },
 ];
 

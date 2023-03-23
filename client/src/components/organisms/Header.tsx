@@ -22,12 +22,12 @@ export default function Header() {
       Icon: IoMdHome,
     },
     {
-      title: "국내",
+      title: "퀴즈",
       address: "/domestic",
       Icon: GiHamburgerMenu,
     },
     {
-      title: "해외",
+      title: "화상면접",
       address: "/pop",
       Icon: null,
     },
