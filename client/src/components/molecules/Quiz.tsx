@@ -1,6 +1,7 @@
 import { quizData } from "@/lib/Dummy";
 import { useRef, useState, useEffect } from "react";
 import type { Quiz } from "@/Type/typeList";
+import Stopwatch from "@/components/molecules/StopWatch";
 
 type level = "전체" | "고급" | "중급" | "초급";
 
@@ -12,8 +13,12 @@ export default function Quiz({}: Props) {
   const [next, setNext] = useState<boolean>(false);
   const [level, setlevel] = useState<level>("전체");
   const answerinputRef = useRef<HTMLInputElement>(null);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const [time, setTime] = useState<number>(0);
+  const { current } = answerinputRef;
 
   const quizList: Quiz[] = quizData;
+
   useEffect(() => {
     const filterQuiz = quizList.filter((el) => {
       if (level === "전체") {
@@ -27,8 +32,8 @@ export default function Quiz({}: Props) {
       return el.id === index;
     });
     setQuiz(nextQuiz);
-    console.log("하이");
-  }, [next]);
+    setTime(0);
+  }, [next, isActive, level]);
 
   useEffect(() => {
     if (answerValue !== "") {
@@ -37,10 +42,10 @@ export default function Quiz({}: Props) {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); //버블링 차단
-    const { current } = answerinputRef;
     if (!current) return;
     else setanswerValue(current.value);
     current.value = "";
+    setIsActive(false);
   };
 
   const nextLevel = () => {
@@ -49,23 +54,49 @@ export default function Quiz({}: Props) {
 
   return (
     <>
-      <div>
-        {quiz?.question}
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            ref={answerinputRef}
-            placeholder="정답을 일력해주세요"
-          />
-          <button type="submit">입력</button>
-        </form>
-        <button type="button" onClick={() => nextLevel()}>
-          다음 문제
-        </button>
+      <div className="sm:flex  max-w-6xl mx-auto justify-between items-center sm:px-54">
+        <div>
+          <section className="w-full bg-blue">
+            {isActive ? quiz?.question : "시작을 눌러주세요"}
+          </section>
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              ref={answerinputRef}
+              placeholder={
+                isActive ? "정답을 입력해주세요" : "start를 눌러주세요"
+              }
+              disabled={!isActive}
+            />
+            <button type="submit">입력</button>
+          </form>
 
-        {answerValue}
+          <button type="button" onClick={() => nextLevel()}>
+            다음 문제
+          </button>
+
+          {answerValue !== ""
+            ? answerValue === quiz?.answer
+              ? "정답입니다"
+              : `오답입니다 정답은 ${quiz?.answer}입니다.`
+            : ""}
+        </div>
+        <nav>
+          <Stopwatch
+            isActive={isActive}
+            setisActive={setIsActive}
+            setanswerValue={setanswerValue}
+            time={time}
+            setTime={setTime}
+            current={current}
+          />
+        </nav>
       </div>
     </>
   );
 }
 //stop워치 이동할것임
+//입력한 값과 답을 보여줌
+//반응형 고려하고 배치에 대해 생각해볼 것
+//stop ㄴ루렀을때 없어지는거 해결할 것
+// 다음문제 해결

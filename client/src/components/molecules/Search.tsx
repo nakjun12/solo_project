@@ -21,3 +21,4 @@ export default function Search({ isOpen }: { isOpen: boolean | undefined }) {
 //다른창 열려있을때 열려야함
 //다른창 닫아있을대도 열려야함
 // 검색창 켜져있으면 닫아야함
+//문제 검색기능

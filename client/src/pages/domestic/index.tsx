@@ -5,11 +5,9 @@ import Quiz from "@/components/molecules/Quiz";
 export default function index() {
   return (
     <main>
-      <div className="flex">
-        <article></article>
-        <section>
+      <div className="">
+        <section className="bg-green mx-auto">
           <Quiz />
-          <Stopwatch />
         </section>
       </div>
       index

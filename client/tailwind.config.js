@@ -11,7 +11,9 @@ module.exports = {
       white: "#FFFFFF",
       pageBG: "var(--pageBG)", //테일윈드 추가
       pageText: "var(--pageText)",
-      color: "#1a0dab",
+      blue: "#1a0dab",
+      orange: "#F5541F",
+      green: "#0F770D",
     },
     extend: {
       padding: {

@@ -85,8 +85,8 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
 };
 
 function startContext() {
-  const { toggleState } = useContext(SiteContext);
-  return toggleState;
+  const { toggleState, toggle } = useContext(SiteContext);
+  return [toggleState, toggle];
 } //현재상황 보여줌
 
 //수정해주는 토글

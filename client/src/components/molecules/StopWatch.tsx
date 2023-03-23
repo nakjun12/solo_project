@@ -1,14 +1,26 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styles from "./Stopwatch.module.css";
 import playTickSound from "../atmos/TickSound";
 
 interface props {
-  isStart?: boolean;
+  isActive: boolean;
+  setisActive: Dispatch<SetStateAction<boolean>>;
+  setanswerValue: Dispatch<SetStateAction<string>>;
+  time: number;
+  setTime: Dispatch<SetStateAction<number>>;
+  current: HTMLInputElement | null;
 }
 
-const Stopwatch = ({ isStart = false }: props) => {
-  const [time, setTime] = useState(0);
-  const [isActive, setIsActive] = useState(isStart);
+const Stopwatch = ({
+  isActive,
+  setisActive,
+  setanswerValue,
+  time,
+  setTime,
+  current,
+}: props) => {
+  // const [time, setTime] = useState(0);
+  // const [isActive, setisActive] = useState(isStart);
   const [isSoundOn, setIsSoundOn] = useState(true);
 
   useEffect(() => {
@@ -32,13 +44,22 @@ const Stopwatch = ({ isStart = false }: props) => {
   }, [time, isSoundOn]);
 
   const handleStartStop = () => {
-    setIsActive((prevIsActive) => !prevIsActive);
-  };
-
-  const handleReset = () => {
-    setIsActive(false);
-    setTime(0);
-  };
+    setisActive((prevIsActive) => !prevIsActive);
+    if (isActive) {
+      setTime(0);
+      if (current) {
+        current.value = "";
+      }
+    }
+    if (!isActive) {
+      setanswerValue("");
+      setTime(0);
+      if (current) {
+        current.value = "";
+        console.log("시바");
+      }
+    }
+  }; //올리지말지 고민할것
 
   const handleToggleSound = () => {
     setIsSoundOn((prevIsSoundOn) => !prevIsSoundOn);
@@ -53,9 +74,7 @@ const Stopwatch = ({ isStart = false }: props) => {
       >
         {isActive ? "Stop" : "Start"}
       </button>
-      <button className={styles.button} onClick={handleReset}>
-        Reset
-      </button>
+
       <button className={styles.button} onClick={handleToggleSound}>
         {isSoundOn ? "Turn Sound Off" : "Turn Sound On"}
       </button>
