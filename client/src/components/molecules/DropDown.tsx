@@ -21,11 +21,11 @@ export default function DropDown({
     return null;
   }
 
-  console.log(title);
-  console.log(dropDown);
   //다음에 해야할 것 서치 리스트 만들기
+
+  //히든으로 모바일 지우기
   return (
-    <nav className="inset-x-0 bg-pageBG">
+    <nav className="hidden sm:inline inset-x-0 bg-pageBG">
       <div className="font-bold relative pb-4">
         {dropDown?.map((data: dropDownList, index: number) => {
           const isTrue = data.title === title;

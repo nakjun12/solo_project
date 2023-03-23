@@ -22,16 +22,22 @@ export default function MenuItem({
       <Link
         href={address}
         className="mx-4 lg:mx-6 hover:text-amber-600"
-        onClick={() => toggleMenu(false)}
-        onMouseOver={() => toggleMenu(true, title)} //클릭했을때 넘어가고 내려감
+        // onClick={() => toggleMenu(false)}
+        // onMouseOver={() => toggleMenu(true, title)} //클릭했을때 넘어가고 내려감
       >
         {Icon && (
           <Icon
             size={"20px"}
             className="text-2xl overflow-visible sm:hidden mx-4 "
-          />
+          /> //나중에 모바일 추가
         )}
-        <p className="hidden font-bold sm:inline my-2 text-base">{title}</p>
+        <p
+          className="hidden font-bold sm:inline my-2 text-base"
+          onClick={() => toggleMenu(false)}
+          onMouseOver={() => toggleMenu(true, title)}
+        >
+          {title}
+        </p>
         {isUnder ? (
           <motion.div className="sm:underline" layoutId="underline" />
         ) : null}
