@@ -9,10 +9,9 @@
 }
 
 .timer {
-  font-size: 5rem;
   color: #ff5733;
-  margin-bottom: 2rem;
-  font-size: 5rem;
+  margin-bottom: 1rem;
+  font-size: 3rem;
 }
 
 .container {
@@ -21,11 +20,10 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .btn {
-  padding: 1rem 2rem;
   font-size: 2rem;
   margin: 0 1rem;
   border-radius: 10px;
@@ -35,7 +33,5 @@
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
-/* .btn:hover {
-  background-color: #333;
-  color: #ddd;
-} */
+.btn:hover {
+}

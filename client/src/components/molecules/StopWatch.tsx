@@ -75,7 +75,7 @@ const Stopwatch = ({
         {isActive ? "Stop" : "Start"}
       </button>
 
-      <button className={styles.button} onClick={handleToggleSound}>
+      <button className={styles.btn} onClick={handleToggleSound}>
         {isSoundOn ? "Turn Sound Off" : "Turn Sound On"}
       </button>
     </div>

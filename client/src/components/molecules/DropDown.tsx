@@ -6,6 +6,7 @@ import { useRect } from "@reach/rect";
 import { m } from "framer-motion";
 import { swipeAnim } from "@/lib/Animate";
 import SearchForm from "./SearchForm";
+import { useToggleMenu } from "@/lib/context/MenuContext";
 
 interface props extends headerType {
   headerheight: number | undefined;
@@ -17,6 +18,7 @@ export default function DropDown({
   headerheight,
   isOpen,
 }: props) {
+  const toggleMenu = useToggleMenu();
   if (title === null || headerheight === undefined) {
     return null;
   }
@@ -83,7 +85,11 @@ export default function DropDown({
                   </m.div>
                 </div>
               </div>
-              <div className="fixed inset-0 z-10 blur-div"></div>
+
+              <div
+                className="fixed inset-0 z-10 blur-div"
+                onClick={() => toggleMenu(false)}
+              ></div>
             </Fragment>
           );
         })}

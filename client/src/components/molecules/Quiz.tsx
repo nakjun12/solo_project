@@ -54,9 +54,9 @@ export default function Quiz({}: Props) {
 
   return (
     <>
-      <div className="sm:flex  max-w-6xl mx-auto justify-between items-center sm:px-54">
-        <div>
-          <section className="w-full bg-blue">
+      <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">
+        <div className="">
+          <section className="w-full quizQuestion  bg-blue">
             {isActive ? quiz?.question : "시작을 눌러주세요"}
           </section>
           <form onSubmit={onSubmit}>

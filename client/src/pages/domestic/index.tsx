@@ -6,7 +6,7 @@ export default function index() {
   return (
     <main>
       <div className="">
-        <section className="bg-green mx-auto">
+        <section className="mainDiv bg-green mx-auto">
           <Quiz />
         </section>
       </div>

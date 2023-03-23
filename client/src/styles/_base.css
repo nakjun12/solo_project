@@ -5,9 +5,9 @@
     @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
   }
   .blur-div {
-    @apply bg-white bg-opacity-40 pointer-events-auto;
+    @apply bg-white bg-opacity-10 pointer-events-auto;
     transition: opacity 0.15s linear;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
   }
   .focus-div {
     background-color: red;
@@ -41,5 +41,11 @@
     right: 0;
     height: 1px;
     background: var(--pageText);
+  }
+  .quizQuestion {
+    height: 100px;
+  }
+  .mainDiv {
+    height: 90vh;
   }
 }
