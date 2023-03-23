@@ -33,7 +33,7 @@ export default function MenuItem({
         )}
         <p className="hidden font-bold sm:inline my-2 text-base">{title}</p>
         {isUnder ? (
-          <motion.div className="underline" layoutId="underline" />
+          <motion.div className="sm:underline" layoutId="underline" />
         ) : null}
       </Link>
     </div>
