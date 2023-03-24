@@ -99,4 +99,25 @@ const quizData = [
   },
 ];
 
-export { quizData };
+export type Quote = {
+  text: string;
+  author: string;
+};
+
+const quotes: Quote[] = [
+  {
+    text: "삶이 있는 한 희망은 있다.",
+    author: "키케로",
+  },
+  {
+    text: "산다는 것 그것은 치열한 전투이다.",
+    author: "로망로랑",
+  },
+  {
+    text: "검은 새벽이 다시 밝아올 때까지 포기하지 마라!",
+    author: "엘레나 루시나 란시스터",
+  },
+  // ... 더 많은 명언 데이터 추가
+];
+
+export { quizData, quotes };

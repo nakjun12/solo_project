@@ -5,3 +5,5 @@
 ROUTER 이용하기
 
 기술스텍에 HTML 5
+
+HTTPS, HTTP확인할 것
