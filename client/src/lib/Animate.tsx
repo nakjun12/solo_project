@@ -53,19 +53,23 @@ const pageTransitionAnim = {
 const variants = {
   enter: (direction: number) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 500 : -500,
       opacity: 0,
     };
   },
   center: {
     zIndex: 1,
-    x: 0,
+    x: 0, //기본 위치
     opacity: 1,
+    transition: {
+      x: { type: "spring", stiffness: 100, damping: 30 },
+      opacity: { duration: 0.2 },
+    },
   },
   exit: (direction: number) => {
     return {
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 500 : -500,
       opacity: 0,
     };
   },

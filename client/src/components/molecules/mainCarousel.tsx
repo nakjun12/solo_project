@@ -34,14 +34,10 @@ const mainCarousel = () => {
             src={images[imageIndex]}
             custom={direction}
             variants={variants}
-            initial="enter"
             animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "tween", duration: 0.5 },
-              opacity: { duration: 0.2 },
-            }}
+            initial="enter"
             drag="x"
+            exit="exit"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
             onDragEnd={(e, { offset, velocity }) => {
