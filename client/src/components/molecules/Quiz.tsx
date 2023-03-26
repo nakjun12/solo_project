@@ -15,6 +15,7 @@ export default function Quiz({}: Props) {
   const answerinputRef = useRef<HTMLInputElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
+  const [result, setResult] = useState<boolean>(false); //boolean 배열 고민할것
   const { current } = answerinputRef;
 
   const quizList: Quiz[] = quizData;
@@ -33,7 +34,7 @@ export default function Quiz({}: Props) {
       return index === quizIndex;
     });
 
-    setQuiz(nextQuiz);
+    if (!result) setQuiz(nextQuiz); //정답보려 할때는 안바귀게해야함
     setTime(0);
   }, [next, isActive, level]);
 
@@ -44,10 +45,12 @@ export default function Quiz({}: Props) {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); //버블링 차단
+
     if (!current) return;
     else setanswerValue(current.value);
     current.value = "";
-    setIsActive(false);
+    setIsActive(false); // 타이머
+    setResult(true); // 답 입력시에 값 안바뀌게 잡아줌
   };
 
   const nextLevel = () => {
@@ -78,9 +81,9 @@ export default function Quiz({}: Props) {
           </button>
 
           {answerValue !== ""
-            ? answerValue === quiz?.answer
+            ? quiz?.answer.includes(answerValue)
               ? "정답입니다"
-              : `오답입니다 정답은 ${quiz?.answer}입니다.`
+              : `오답입니다 정답은 ${quiz?.answer}`
             : ""}
         </div>
         <nav>
@@ -91,6 +94,7 @@ export default function Quiz({}: Props) {
             time={time}
             setTime={setTime}
             current={current}
+            setResult={setResult}
           />
           <RadioButton level={level} setlevel={setlevel} />
         </nav>

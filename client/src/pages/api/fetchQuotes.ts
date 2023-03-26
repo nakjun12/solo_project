@@ -14,7 +14,7 @@ const fetchQuotes = async (): Promise<any> => {
       "Content-Type": "application/json",
     },
   });
-  console.log(quotesRes);
+
   return quotesRes.ok ? quotesRes.json() : "failure";
 };
 

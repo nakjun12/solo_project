@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import MainCarousel from "@/components/molecules/mainCarousel";
 import fetchQuotes from "@/pages/api/fetchQuotes";
 import type { GetStaticProps } from "next";
 
@@ -9,7 +9,7 @@ type Props = {
 
 export default function Quotes({ initialQuote }: Props) {
   const [quote, setQuote] = useState<string | null>(initialQuote);
-  console.log(initialQuote);
+
   const handleNewQuoteClick = async () => {
     const newQuote = await fetchQuotes();
     setQuote(newQuote.slip.advice);
@@ -17,6 +17,8 @@ export default function Quotes({ initialQuote }: Props) {
 
   return (
     <div>
+      <MainCarousel />
+
       <h1>명언 랜덤 출력기</h1>
       {quote ? (
         <div>
@@ -52,3 +54,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 <link rel="icon" href="/favicon.ico" />
 </Head> */
 }
+//기술면접 사진과 화상면접 사진 넣기

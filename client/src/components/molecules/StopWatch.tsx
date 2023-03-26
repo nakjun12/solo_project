@@ -9,6 +9,7 @@ interface props {
   time: number;
   setTime: Dispatch<SetStateAction<number>>;
   current: HTMLInputElement | null;
+  setResult: Dispatch<SetStateAction<boolean>>;
 }
 
 const Stopwatch = ({
@@ -18,6 +19,7 @@ const Stopwatch = ({
   time,
   setTime,
   current,
+  setResult,
 }: props) => {
   // const [time, setTime] = useState(0);
   // const [isActive, setisActive] = useState(isStart);
@@ -58,6 +60,8 @@ const Stopwatch = ({
         current.value = "";
       }
     }
+
+    setResult(false);
   }; //올리지말지 고민할것
 
   const handleToggleSound = () => {
