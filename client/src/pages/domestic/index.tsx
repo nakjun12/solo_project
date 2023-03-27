@@ -5,11 +5,7 @@ import Quiz from "@/components/molecules/Quiz";
 export default function index() {
   return (
     <main>
-      <div className="">
-        <section className="mainDiv bg-green mx-auto">
-          <Quiz />
-        </section>
-      </div>
+      <Quiz />
       index
     </main>
   );
@@ -17,3 +13,4 @@ export default function index() {
 
 //릴레이
 // 하나씩 푸는 것
+//읽어 주는것 정답 출력

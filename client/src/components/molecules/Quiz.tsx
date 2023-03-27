@@ -58,13 +58,13 @@ export default function Quiz({}: Props) {
   };
 
   return (
-    <>
+    <section className="mainDiv bg-green mx-auto">
       <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">
-        <div className="">
-          <section className="w-full quizQuestion  bg-blue">
+        <div className="mr-12">
+          <h1 className="quizQuestion  bg-blue">
             {isActive ? quiz?.question : "시작을 눌러주세요"}
-          </section>
-          <form onSubmit={onSubmit}>
+          </h1>
+          <form className="user-input" onSubmit={onSubmit}>
             <input
               type="text"
               ref={answerinputRef}
@@ -76,15 +76,13 @@ export default function Quiz({}: Props) {
             <button type="submit">입력</button>
           </form>
 
-          <button type="button" onClick={() => nextLevel()}>
-            다음 문제
-          </button>
-
-          {answerValue !== ""
-            ? quiz?.answer.includes(answerValue)
-              ? "정답입니다"
-              : `오답입니다 정답은 ${quiz?.answer}`
-            : ""}
+          <label>
+            {answerValue !== ""
+              ? quiz?.answer.includes(answerValue)
+                ? "정답입니다"
+                : `오답입니다 `
+              : ""}
+          </label>
         </div>
         <nav>
           <Stopwatch
@@ -97,9 +95,23 @@ export default function Quiz({}: Props) {
             setResult={setResult}
           />
           <RadioButton level={level} setlevel={setlevel} />
+          <label className="cursor-pointer">
+            다음 문제
+            <button type="button" onClick={() => nextLevel()} />
+          </label>
         </nav>
       </div>
-    </>
+      <ul className="">
+        <li className="output-container">
+          <label>내가 적은 답</label>
+          {answerValue !== "" ? answerValue : ""}
+        </li>
+        <li className="output-container">
+          <label>정답</label>
+          {answerValue !== "" ? quiz?.answer : ""}
+        </li>
+      </ul>
+    </section>
   );
 }
 //stop워치 이동할것임

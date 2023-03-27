@@ -85,7 +85,9 @@ export default function Home() {
             </button>
           )}
           <button onClick={stopRecording}>Stop recording and download</button>
-          <h1 className="">Hello world!</h1>
+          <h1 className="">
+            저장하려면 로딩이 필요합니다 10초뒤에 저장해주세요
+          </h1>
         </div>
       </main>
     </>
@@ -93,3 +95,4 @@ export default function Home() {
 }
 
 //헤드 설정 잊지말것
+//읽어주는 것 문제 내기 정답 출력
