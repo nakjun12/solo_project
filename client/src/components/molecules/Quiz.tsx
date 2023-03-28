@@ -1,5 +1,5 @@
 import { quizData } from "@/lib/Dummy";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import type { Quiz } from "@/Type/typeList";
 import Stopwatch from "@/components/molecules/StopWatch";
 import RadioButton from "../atmos/RadioButton";
@@ -19,6 +19,26 @@ export default function Quiz({}: Props) {
   const { current } = answerinputRef;
 
   const quizList: Quiz[] = quizData;
+
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const debounce = setTimeout(() => {
+        setWindowWidth(window.innerWidth);
+      }, 1000);
+      return () => {
+        clearTimeout(debounce);
+      };
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const filterQuiz = quizList.filter((el) => {
@@ -57,11 +77,13 @@ export default function Quiz({}: Props) {
     setNext(!next);
   };
 
+  console.log(windowWidth);
+
   return (
-    <section className="mainDiv bg-green mx-auto">
+    <section className="mainDiv mx-auto h-auto">
       <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">
         <div className="mr-12">
-          <h1 className="quizQuestion  bg-blue">
+          <h1 className="quizQuestion flex items-center justify-center">
             {isActive ? quiz?.question : "시작을 눌러주세요"}
           </h1>
           <form className="user-input" onSubmit={onSubmit}>
@@ -76,34 +98,59 @@ export default function Quiz({}: Props) {
             <button type="submit">입력</button>
           </form>
 
-          <label>
-            {answerValue !== ""
-              ? quiz?.answer.includes(answerValue)
-                ? "정답입니다"
-                : `오답입니다 `
-              : ""}
-          </label>
+          {windowWidth <= 640 ? (
+            <nav className=" sm:hidden">
+              <Stopwatch
+                isActive={isActive}
+                setisActive={setIsActive}
+                setanswerValue={setanswerValue}
+                time={time}
+                setTime={setTime}
+                current={current}
+                setResult={setResult}
+              />
+              <RadioButton level={level} setlevel={setlevel} />
+              <label className="cursor-pointer">
+                다음 문제
+                <button type="button" onClick={() => nextLevel()} />
+              </label>
+            </nav>
+          ) : (
+            <></>
+          )}
         </div>
-        <nav>
-          <Stopwatch
-            isActive={isActive}
-            setisActive={setIsActive}
-            setanswerValue={setanswerValue}
-            time={time}
-            setTime={setTime}
-            current={current}
-            setResult={setResult}
-          />
-          <RadioButton level={level} setlevel={setlevel} />
-          <label className="cursor-pointer">
-            다음 문제
-            <button type="button" onClick={() => nextLevel()} />
-          </label>
-        </nav>
+        {windowWidth > 640 ? (
+          <nav className="hidden sm:inline">
+            <Stopwatch
+              isActive={isActive}
+              setisActive={setIsActive}
+              setanswerValue={setanswerValue}
+              time={time}
+              setTime={setTime}
+              current={current}
+              setResult={setResult}
+            />
+            <RadioButton level={level} setlevel={setlevel} />
+            <label className="cursor-pointer">
+              다음 문제
+              <button type="button" onClick={() => nextLevel()} />
+            </label>
+          </nav>
+        ) : (
+          <></>
+        )}
       </div>
       <ul className="">
         <li className="output-container">
-          <label>내가 적은 답</label>
+          <label>
+            내가 적은 답 :
+            {answerValue !== ""
+              ? quiz?.answer.includes(answerValue)
+                ? " 정답입니다"
+                : ` 오답입니다 `
+              : ""}
+          </label>
+
           {answerValue !== "" ? answerValue : ""}
         </li>
         <li className="output-container">

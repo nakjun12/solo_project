@@ -4,7 +4,7 @@ import Quiz from "@/components/molecules/Quiz";
 
 export default function index() {
   return (
-    <main>
+    <main className="h-auto">
       <Quiz />
       index
     </main>

@@ -1,17 +1,33 @@
 .start {
   color: white;
   background-color: green;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .stop {
   color: white;
   background-color: red;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .timer {
-  color: #ff5733;
+  color: var(pageBG);
   margin-bottom: 1rem;
   font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 10rem;
+  border: 5px solid var(pageBG);
+  font-family: Arial;
+  font-weight: bold;
 }
 
 .container {
