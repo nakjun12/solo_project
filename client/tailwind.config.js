@@ -14,6 +14,8 @@ module.exports = {
       blue: "#1a0dab",
       orange: "#F5541F",
       green: "#0F770D",
+      button: "var(--button)",
+      block: "var(--block)",
     },
     extend: {
       padding: {
@@ -36,7 +38,7 @@ module.exports = {
         return acc;
       }, {}),
   },
-
+  mode: "jit",
   plugins: [],
   darkMode: "class",
 };

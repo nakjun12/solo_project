@@ -10,6 +10,7 @@ interface props {
   setTime: Dispatch<SetStateAction<number>>;
   current: HTMLInputElement | null;
   setResult: Dispatch<SetStateAction<boolean>>;
+  isSoundOn: boolean;
 }
 
 const Stopwatch = ({
@@ -20,10 +21,10 @@ const Stopwatch = ({
   setTime,
   current,
   setResult,
+  isSoundOn,
 }: props) => {
   // const [time, setTime] = useState(0);
   // const [isActive, setisActive] = useState(isStart);
-  const [isSoundOn, setIsSoundOn] = useState(true);
 
   useEffect(() => {
     const interval: NodeJS.Timeout | null = isActive
@@ -64,10 +65,6 @@ const Stopwatch = ({
     setResult(false);
   }; //올리지말지 고민할것
 
-  const handleToggleSound = () => {
-    setIsSoundOn((prevIsSoundOn) => !prevIsSoundOn);
-  };
-
   return (
     <div className={styles.container}>
       <h1 className={styles.timer}>{time.toFixed(1)}</h1>
@@ -76,10 +73,6 @@ const Stopwatch = ({
         onClick={handleStartStop}
       >
         {isActive ? "Stop" : "Start"}
-      </button>
-
-      <button className={styles.btn} onClick={handleToggleSound}>
-        {isSoundOn ? "Turn Sound Off" : "Turn Sound On"}
       </button>
     </div>
   );

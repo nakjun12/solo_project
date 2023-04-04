@@ -1,16 +1,24 @@
 /* Variables */
 @import "_base";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+/* font-family: 'Poppins', sans-serif;*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font-family: 'Be Vietnam Pro', sans-serif;*/
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font-family: "GmarketSansBold";*/
 
 :root {
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: "GmarketSansBold";
   --black: #000000;
   --white: #ffffff;
-  font-family: var(--inter-font);
+
   --black-hsl: 0, 0%, 0%;
   --white-hsl: 0, 0%, 100%;
-
+  --button: #4caf50;
   --pageBG: #f4f4f0;
   --pageText: #000000;
-
+  --block: #f4f4f0;
   --pageBG-hsl: 60, 14%, 95%;
   --pageText-hsl: 0, 0%, 0%;
 }
@@ -18,7 +26,8 @@
 [data-theme="dark"] {
   --pageBG: #000000;
   --pageText: #f4f4f0;
-
+  --block: linear-gradient(#16455f, #0e1239);
+  --button: green;
   --pageBG-hsl: 0, 0%, 0%;
   --pageText-hsl: 60, 14%, 95%;
 }
@@ -26,7 +35,8 @@
 [data-theme="metal"] {
   --pageBG: #000000;
   --pageText: #fb1b15;
-
+  --block: linear-gradient(#16455f, #0e1239);
+  --button: green;
   --pageBG-hsl: 0, 0%, 0%;
   --pageText-hsl: 2, 92%, 53%;
 }

@@ -11,9 +11,9 @@ import { useRect } from "@reach/rect";
 import type { MenuItemType } from "@/Type/typeList.d.ts";
 
 export default function Header() {
-  const { isOpen, title, dropDown }: headerType = useSiteContext();
   const headerRef = useRef() as RefObject<HTMLDivElement>;
   const headerRect = useRect(headerRef);
+  const { isOpen, title, dropDown }: headerType = useSiteContext();
 
   const menuItems: MenuItemType[] = [
     {
@@ -23,12 +23,12 @@ export default function Header() {
     },
     {
       title: "퀴즈",
-      address: "/domestic",
+      address: "/quiz",
       Icon: GiHamburgerMenu,
     },
     {
       title: "화상면접",
-      address: "/pop",
+      address: "/video",
       Icon: null,
     },
   ];

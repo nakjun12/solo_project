@@ -6,7 +6,6 @@ export default function index() {
   return (
     <main className="h-auto">
       <Quiz />
-      index
     </main>
   );
 }

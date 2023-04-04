@@ -4,7 +4,7 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const recordedChunksRef = useRef<Blob[]>([]);
-  const [isRecording, setIsRecording] = useState(false);
+  const [isRecording, setIsRecording] = useState<boolean>(false);
 
   async function startRecording() {
     if (isRecording) {
@@ -66,28 +66,37 @@ export default function Home() {
 
     recordedChunksRef.current = [];
   }
+  const stopVideo = () => {
+    if (isRecording && videoRef.current) {
+      videoRef.current.pause();
+      setIsRecording(false);
+    }
+  };
+
   return (
     <>
       <main className="relative ">
-        <div>
-          <span className="focus-div">안녕</span>
-          <video ref={videoRef} autoPlay={true} />
+        <div className="flex flex-col items-center h-full">
+          <video
+            ref={videoRef}
+            autoPlay={true}
+            className="
+          w-full sm:w-2/4 h-[400px] object-cover"
+          />
           <button onClick={startRecording} disabled={isRecording}>
             {isRecording ? "Recording..." : "Start"}
           </button>
           {isRecording && (
             <button
               onClick={() => {
-                videoRef.current?.pause();
+                stopVideo();
               }}
             >
-              Pause Video
+              정지
             </button>
           )}
           <button onClick={stopRecording}>Stop recording and download</button>
-          <h1 className="">
-            저장하려면 로딩이 필요합니다 10초뒤에 저장해주세요
-          </h1>
+          <h1 className="">기술면접 버튼 만들고, 질문 생성할 것</h1>
         </div>
       </main>
     </>

@@ -11,44 +11,29 @@ export default function RadioButton({ level, setlevel }: Props) {
     setlevel(event.target.value as Level);
   };
 
+  const levels = [
+    { label: "전체", value: "전체" },
+    { label: "초급", value: "초급" },
+    { label: "중급", value: "중급" },
+    { label: "고급", value: "고급" },
+  ];
+
   return (
-    <div>
-      <label>
-        <input
-          type="radio"
-          value="전체"
-          checked={level === "전체"}
-          onChange={handleLevelChange}
-        />
-        전체
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="초급"
-          checked={level === "초급"}
-          onChange={handleLevelChange}
-        />
-        초급
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="중급"
-          checked={level === "중급"}
-          onChange={handleLevelChange}
-        />
-        중급
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="고급"
-          checked={level === "고급"}
-          onChange={handleLevelChange}
-        />
-        고급
-      </label>
+    <div className="flex justify-center my-4 items-center space-x-4">
+      {levels.map((option) => (
+        <label
+          key={option.value}
+          className="inline-flex items-center cursor-pointer"
+        >
+          <input
+            type="radio"
+            value={option.value}
+            checked={level === option.value}
+            onChange={handleLevelChange}
+          />
+          <span className="ml-2">{option.label}</span>
+        </label>
+      ))}
     </div>
   );
 }

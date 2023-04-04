@@ -14,6 +14,7 @@ export default function Quiz({}: Props) {
   const [level, setlevel] = useState<Level>("전체");
   const answerinputRef = useRef<HTMLInputElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [isSoundOn, setIsSoundOn] = useState(true);
   const [time, setTime] = useState<number>(0);
   const [result, setResult] = useState<boolean>(false); //boolean 배열 고민할것
   const { current } = answerinputRef;
@@ -77,7 +78,9 @@ export default function Quiz({}: Props) {
     setNext(!next);
   };
 
-  console.log(windowWidth);
+  const handleToggleSound = () => {
+    setIsSoundOn((prevIsSoundOn) => !prevIsSoundOn);
+  };
 
   return (
     <section className="mainDiv mx-auto h-auto">
@@ -86,8 +89,9 @@ export default function Quiz({}: Props) {
           <h1 className="quizQuestion flex items-center justify-center">
             {isActive ? quiz?.question : "시작을 눌러주세요"}
           </h1>
-          <form className="user-input" onSubmit={onSubmit}>
+          <form className="user-input flex items-center" onSubmit={onSubmit}>
             <input
+              className="flex-1"
               type="text"
               ref={answerinputRef}
               placeholder={
@@ -95,12 +99,15 @@ export default function Quiz({}: Props) {
               }
               disabled={!isActive}
             />
-            <button type="submit">입력</button>
+            <button className="ml-4" type="submit">
+              입력
+            </button>
           </form>
 
           {windowWidth <= 640 ? (
             <nav className=" sm:hidden">
               <Stopwatch
+                isSoundOn={isSoundOn}
                 isActive={isActive}
                 setisActive={setIsActive}
                 setanswerValue={setanswerValue}
@@ -110,10 +117,20 @@ export default function Quiz({}: Props) {
                 setResult={setResult}
               />
               <RadioButton level={level} setlevel={setlevel} />
-              <label className="cursor-pointer">
-                다음 문제
-                <button type="button" onClick={() => nextLevel()} />
-              </label>
+
+              <div className="my-8">
+                <button type="button" onClick={() => nextLevel()}>
+                  다음 문제
+                </button>
+
+                <button
+                  type="button"
+                  className="ml-4"
+                  onClick={handleToggleSound}
+                >
+                  {isSoundOn ? "Sound Off" : "Sound On"}
+                </button>
+              </div>
             </nav>
           ) : (
             <></>
@@ -122,6 +139,7 @@ export default function Quiz({}: Props) {
         {windowWidth > 640 ? (
           <nav className="hidden sm:inline">
             <Stopwatch
+              isSoundOn={isSoundOn}
               isActive={isActive}
               setisActive={setIsActive}
               setanswerValue={setanswerValue}
@@ -131,24 +149,32 @@ export default function Quiz({}: Props) {
               setResult={setResult}
             />
             <RadioButton level={level} setlevel={setlevel} />
-            <label className="cursor-pointer">
-              다음 문제
-              <button type="button" onClick={() => nextLevel()} />
-            </label>
+            <div className="my-8">
+              <button type="button" onClick={() => nextLevel()}>
+                다음 문제
+              </button>
+
+              <button
+                type="button"
+                className="ml-4"
+                onClick={handleToggleSound}
+              >
+                {isSoundOn ? "Sound Off" : "Sound On"}
+              </button>
+            </div>
           </nav>
         ) : (
           <></>
         )}
       </div>
-      <ul className="">
+      <ul className="flex flex-col sm:flex-row ">
         <li className="output-container">
           <label>
-            내가 적은 답 :
             {answerValue !== ""
               ? quiz?.answer.includes(answerValue)
                 ? " 정답입니다"
                 : ` 오답입니다 `
-              : ""}
+              : "퀴즈의 키워드를 맞춰보세요"}
           </label>
 
           {answerValue !== "" ? answerValue : ""}
