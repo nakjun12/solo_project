@@ -1,9 +1,8 @@
 import { quizData } from "@/lib/Dummy";
 import { useRef, useState, useEffect, useCallback } from "react";
-import type { Quiz } from "@/Type/typeList";
+import type { Quiz, Level } from "@/Type/typeList";
 import Stopwatch from "@/components/molecules/StopWatch";
 import RadioButton from "../atmos/RadioButton";
-import type { Level } from "@/Type/typeList";
 
 type Props = {};
 
@@ -118,7 +117,7 @@ export default function Quiz({}: Props) {
               />
               <RadioButton level={level} setlevel={setlevel} />
 
-              <div className="my-8">
+              <div className="my-8 flex">
                 <button type="button" onClick={() => nextLevel()}>
                   다음 문제
                 </button>

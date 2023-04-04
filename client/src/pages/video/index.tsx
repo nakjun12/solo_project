@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
+import ReadString from "@/components/molecules/ReadString";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -95,8 +96,13 @@ export default function Home() {
               정지
             </button>
           )}
-          <button onClick={stopRecording}>Stop recording and download</button>
+
+          <button onClick={() => stopRecording()}>
+            Stop recording and download
+          </button>
           <h1 className="">기술면접 버튼 만들고, 질문 생성할 것</h1>
+          <button onClick={() => stopAudio()}>오디오 컨트롤</button>
+          <ReadString />
         </div>
       </main>
     </>

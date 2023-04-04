@@ -21,7 +21,7 @@ export type dropDownList = {
 export type headerType = {
   isOpen?: boolean;
   title: title | null;
-  dropDown: dropDownList[] | null; //목록
+  dropDown?: dropDownList[] | null; //목록
 };
 
 type initialContext = {
