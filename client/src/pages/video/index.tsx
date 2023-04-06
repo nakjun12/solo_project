@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import ReadString from "@/components/molecules/ReadString";
+import { useRef, useState } from 'react';
+import ReadString from '@/components/molecules/ReadString';
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -10,7 +10,7 @@ export default function Home() {
   async function startRecording() {
     if (isRecording) {
       //이미 시작중일때 작동함
-      console.log("Already recording.");
+      console.log('Already recording.');
       return;
     }
 
@@ -26,17 +26,17 @@ export default function Home() {
         videoElem.srcObject = mediaStream;
         videoElem.play();
         mediaRecorderRef.current = new MediaRecorder(mediaStream, {
-          mimeType: "video/webm",
+          mimeType: 'video/webm',
         }); //녹화 세팅
         mediaRecorderRef.current.addEventListener(
-          "dataavailable",
+          'dataavailable',
           handleDataAvailable
         ); // Blob 상태로 저장
         mediaRecorderRef.current.start(); //녹화 시작
         setIsRecording(true);
       }
     } catch (error) {
-      console.error("Error accessing media devices.", error);
+      console.error('Error accessing media devices.', error);
     }
   }
 
@@ -52,14 +52,14 @@ export default function Home() {
     if (!mediaRecorder) return;
 
     mediaRecorder.stop(); //저장을 멈춤
-    mediaRecorder.removeEventListener("dataavailable", handleDataAvailable); //저장하는 이벤트 삭제
+    mediaRecorder.removeEventListener('dataavailable', handleDataAvailable); //저장하는 이벤트 삭제
     setIsRecording(false);
 
-    const blob = new Blob(recordedChunksRef.current, { type: "video/webm" }); //저장해온 것을 담음
+    const blob = new Blob(recordedChunksRef.current, { type: 'video/webm' }); //저장해온 것을 담음
     const url = URL.createObjectURL(blob); //url에 담음
     const fileName = `recorded-video-${new Date().toISOString()}.webm`; //네이밍
 
-    const a = document.createElement("a");
+    const a = document.createElement('a');
     a.href = url;
     a.download = fileName;
     document.body.appendChild(a);
@@ -85,7 +85,7 @@ export default function Home() {
           w-full sm:w-2/4 h-[400px] object-cover"
           />
           <button onClick={startRecording} disabled={isRecording}>
-            {isRecording ? "Recording..." : "Start"}
+            {isRecording ? 'Recording...' : 'Start'}
           </button>
           {isRecording && (
             <button
@@ -101,7 +101,7 @@ export default function Home() {
             Stop recording and download
           </button>
           <h1 className="">기술면접 버튼 만들고, 질문 생성할 것</h1>
-          <button onClick={() => stopAudio()}>오디오 컨트롤</button>
+
           <ReadString />
         </div>
       </main>
@@ -111,3 +111,4 @@ export default function Home() {
 
 //헤드 설정 잊지말것
 //읽어주는 것 문제 내기 정답 출력
+//저장하는 것 대신에 출력하는것도 괜찮다.
