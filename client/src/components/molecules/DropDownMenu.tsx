@@ -1,6 +1,5 @@
 import type { dropDownList, headerType } from '@/Type/typeList.d.ts';
 import { swipeAnim } from '@/lib/Animate';
-import { useToggleMenu } from '@/lib/context/MenuContext';
 import { useRect } from '@reach/rect';
 import cx from 'classnames';
 import { m } from 'framer-motion';
@@ -38,7 +37,6 @@ export default function DropDownMenu({ data, title, headerheight }: props) {
     }
   }, [isTrue]);
 
-  const toggleMenu = useToggleMenu();
   return (
     <Fragment>
       <div
@@ -69,11 +67,6 @@ export default function DropDownMenu({ data, title, headerheight }: props) {
           </m.div>
         </div>
       </div>
-
-      <div
-        className="fixed inset-0 z-10 blur-div"
-        onClick={() => toggleMenu(false)}
-      ></div>
     </Fragment>
   );
 }

@@ -1,7 +1,7 @@
-import { AiOutlineSearch } from 'react-icons/ai';
 import { useToggleMenu } from '@/lib/context/MenuContext';
+import { AiOutlineSearch } from 'react-icons/ai';
 
-import type { title } from '@/lib/context/MenuContext';
+import type { title } from '@/Type/typeList';
 
 export default function Search({ title }: { title: title | null }) {
   const toggleMenu = useToggleMenu();

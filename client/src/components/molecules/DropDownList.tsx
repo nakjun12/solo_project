@@ -1,4 +1,4 @@
-import type { dropDownValue } from '@/lib/context/MenuContext';
+import type { dropDownValue } from '@/Type/typeList.d.ts';
 import cx from 'classnames';
 import Link from 'next/link';
 import React from 'react';

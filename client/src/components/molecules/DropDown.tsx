@@ -1,5 +1,4 @@
 import type { dropDownList, headerType } from '@/Type/typeList.d.ts';
-import { useToggleMenu } from '@/lib/context/MenuContext';
 import DropDownMenu from './DropDownMenu';
 interface props extends headerType {
   headerheight: number | undefined;
@@ -11,7 +10,6 @@ export default function DropDown({
   headerheight,
   isOpen,
 }: props) {
-  const toggleMenu = useToggleMenu();
   if (title === null || headerheight === undefined) {
     return null;
   }

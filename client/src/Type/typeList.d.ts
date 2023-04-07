@@ -16,7 +16,7 @@ export interface MenuItemType {
 
 export type Level = '전체' | '고급' | '중급' | '초급';
 
-export type title = '퀴즈' | '화상면접' | 'HOME' | 'Search' | 'Mobile';
+export type title = '퀴즈' | '화상면접' | 'HOME' | 'Search' | 'MOBILE';
 
 export type dropDownValue = {
   name: string;
@@ -30,6 +30,6 @@ export type dropDownList = {
 
 export type headerType = {
   isOpen?: boolean;
-  title: title | null;
+  title?: title | null;
   dropDown?: dropDownList[] | null; //목록
 };

@@ -84,7 +84,7 @@ export default function Home() {
             ref={videoRef}
             autoPlay={true}
             className="
-          h-[400px] object-cover border-2"
+          h-[400px] w-[441px] object-cover border-2"
           />
           <section className="mt-10">
             <div className="flex flex-row justify-center my-6">

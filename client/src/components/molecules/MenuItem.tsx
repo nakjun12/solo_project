@@ -33,12 +33,7 @@ export default function MenuItem({
   //모바일 추가
 
   const toggleMobileHandler = () => {
-    if (title === 'HOME') {
-      Router.push('/');
-      toggleMenu(false, 'HOME');
-    } else {
-      toggleMenu(!isOpen, 'Mobile');
-    }
+    toggleMenu(!isOpen, '퀴즈');
   };
 
   return (

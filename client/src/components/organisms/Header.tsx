@@ -1,18 +1,21 @@
 import type { MenuItemType, headerType } from '@/Type/typeList.d.ts';
-import { useSiteContext } from '@/lib/context/MenuContext';
+import { useSiteContext, useToggleMenu } from '@/lib/context/MenuContext';
 import { useRect } from '@reach/rect';
 import { RefObject, useRef } from 'react';
 import { IoMdHome } from 'react-icons/Io';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import useWindowWidth from '../atmos/useWindowWidth';
 import DarkModeSwitch from '../molecules/DarkModeswitch';
 import DropDown from '../molecules/DropDown';
 import MenuItem from '../molecules/MenuItem';
+import MobileDropDown from '../molecules/MobileDropDown';
 import Search from '../molecules/Search';
-
 export default function Header() {
   const headerRef = useRef() as RefObject<HTMLDivElement>;
   const headerRect = useRect(headerRef);
+  const toggleMenu = useToggleMenu();
   const { isOpen, title, dropDown }: headerType = useSiteContext();
+  const windowWidth = useWindowWidth();
 
   const menuItems: MenuItemType[] = [
     {
@@ -56,15 +59,28 @@ export default function Header() {
           </div>
         </header>
       </div>
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-10 blur-div"
+          onClick={() => toggleMenu(false)}
+        ></div>
+      )}
 
-      {isOpen && title !== 'HOME' && (
+      {isOpen &&
+        windowWidth >= 640 &&
+        title !== 'HOME' && ( // 이방식을 안쓰는 이유는 부드럽게 넘기지 못해서 이다.
+          <>
+            <DropDown
+              title={title}
+              dropDown={dropDown}
+              headerheight={headerRect?.height}
+              isOpen={isOpen}
+            />
+          </>
+        )}
+      {windowWidth < 640 && (
         <>
-          <DropDown
-            title={title}
-            dropDown={dropDown}
-            headerheight={headerRect?.height}
-            isOpen={isOpen}
-          />
+          <MobileDropDown dropDown={dropDown} isOpen={isOpen} />
         </>
       )}
     </>
