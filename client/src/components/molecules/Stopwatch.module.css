@@ -1,0 +1,50 @@
+.start {
+  color: white;
+  background-color: var(--button);
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.stop {
+  color: white;
+  background-color: red;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.timer {
+  color: var(pageBG);
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 10rem;
+  border: 5px solid var(pageBG);
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.btn {
+  font-size: 2rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+
+  color: var(--pageText);
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}

@@ -1,0 +1,16 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "importOrder": [
+    "builtin",
+    "external",
+    "internal",
+    "parent",
+    "sibling",
+    "index"
+  ]
+}

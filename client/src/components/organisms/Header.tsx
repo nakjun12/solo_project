@@ -1,34 +1,36 @@
-import MenuItem from "../molecules/MenuItem";
-import { IoMdHome } from "react-icons/Io";
-import DarkModeSwitch from "../molecules/DarkModeswitch";
-import { GiHamburgerMenu } from "react-icons/gi";
-import Search from "../molecules/Search";
-import { useSiteContext } from "@/lib/Context";
-import DropDown from "../molecules/DropDown";
-import type { headerType } from "@/lib/Context";
-import { useRef, RefObject } from "react";
-import { useRect } from "@reach/rect";
-import type { MenuItemType } from "@/lib/TypeList";
-
+import type { MenuItemType, headerType } from '@/Type/typeList.d.ts';
+import { useSiteContext, useToggleMenu } from '@/lib/context/MenuContext';
+import { useRect } from '@reach/rect';
+import { RefObject, useRef } from 'react';
+import { IoMdHome } from 'react-icons/Io';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import useWindowWidth from '../atmos/useWindowWidth';
+import DarkModeSwitch from '../molecules/DarkModeswitch';
+import DropDown from '../molecules/DropDown';
+import MenuItem from '../molecules/MenuItem';
+import MobileDropDown from '../molecules/MobileDropDown';
+import Search from '../molecules/Search';
 export default function Header() {
-  const { isOpen, title, dropDown }: headerType = useSiteContext();
   const headerRef = useRef() as RefObject<HTMLDivElement>;
   const headerRect = useRect(headerRef);
+  const toggleMenu = useToggleMenu();
+  const { isOpen, title, dropDown }: headerType = useSiteContext();
+  const windowWidth = useWindowWidth();
 
   const menuItems: MenuItemType[] = [
     {
-      title: "HOME",
-      address: "/",
+      title: 'HOME',
+      address: '/',
       Icon: IoMdHome,
     },
     {
-      title: "국내",
-      address: "/domestic",
+      title: '퀴즈',
+      address: '/quiz',
       Icon: GiHamburgerMenu,
     },
     {
-      title: "해외",
-      address: "/pop",
+      title: '화상면접',
+      address: '/video',
       Icon: null,
     },
   ];
@@ -46,25 +48,39 @@ export default function Header() {
                   address={item.address}
                   Icon={item.Icon}
                   selectTitle={title}
+                  isOpen={isOpen}
                 />
               ))}
           </div>
 
           <div className="flex items-center">
-            <Search isOpen={isOpen} />
+            <Search title={title} />
             <DarkModeSwitch />
           </div>
         </header>
       </div>
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-10 blur-div"
+          onClick={() => toggleMenu(false)}
+        ></div>
+      )}
 
-      {isOpen && title !== "HOME" && (
+      {isOpen &&
+        windowWidth >= 640 &&
+        title !== 'HOME' && ( // 이방식을 안쓰는 이유는 부드럽게 넘기지 못해서 이다.
+          <>
+            <DropDown
+              title={title}
+              dropDown={dropDown}
+              headerheight={headerRect?.height}
+              isOpen={isOpen}
+            />
+          </>
+        )}
+      {windowWidth < 640 && (
         <>
-          <DropDown
-            title={title}
-            dropDown={dropDown}
-            headerheight={headerRect?.height}
-            isOpen={isOpen}
-          />
+          <MobileDropDown dropDown={dropDown} isOpen={isOpen} />
         </>
       )}
     </>
@@ -74,3 +90,4 @@ export default function Header() {
 //relatvie는 각자의 공간을 존중해준다.
 //relative fixed인 경우 fixed는 relative 위로 올 수 있다 z-index가 높으면
 //z-index가 높아도 fixed가 위에 쌓인다.
+//메뉴가 아닌 드랍다운에서 넘어가도록 수정

@@ -1,42 +1,42 @@
+import type { dropDownList, headerType, title } from '@/Type/typeList.d.ts';
 import {
+  Dispatch,
+  SetStateAction,
   createContext,
   useContext,
   useState,
-  Dispatch,
-  SetStateAction,
-} from "react";
-
-export type title = "국내" | "해외" | "HOME" | "Search";
-
-export type dropDownValue = {
-  count: number;
-  name: string;
-};
-
-export type dropDownList = {
-  title: title | null;
-  dropDownList?: dropDownValue[];
-};
-
-export type headerType = {
-  isOpen?: boolean;
-  title: title | null;
-  dropDown: dropDownList[] | null;
-};
+} from 'react';
 
 type initialContext = {
   context: headerType;
   setContext: Dispatch<SetStateAction<headerType>>;
+  toggleState: boolean;
+  toggle: () => void;
 };
 // 필요한 값이있다면 context 추가할것
 
+const dropDownDummy: dropDownList[] = [
+  {
+    title: '퀴즈',
+    dropDownList: [{ name: '프론트엔드', address: '/quiz' }],
+  },
+  {
+    title: '화상면접',
+    dropDownList: [{ name: '기술질문', address: '/video' }],
+  },
+  { title: 'Search' },
+];
+
 const initialContext: initialContext = {
+  //초기값
   context: {
     isOpen: true,
     title: null,
     dropDown: null,
   },
   setContext: () => null,
+  toggleState: false, //추가
+  toggle: () => {},
 };
 
 //초기값넣어줌
@@ -46,24 +46,20 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   const [context, setContext] = useState<headerType>({
     isOpen: false,
     title: null,
-    dropDown: [
-      {
-        title: "국내",
-        dropDownList: [
-          { count: 4, name: "트로트" },
-          { count: 3, name: "힙합" },
-        ],
-      },
-      { title: "해외", dropDownList: [{ count: 3, name: "Pop송" }] },
-      { title: "Search" },
-    ],
+    dropDown: dropDownDummy,
   });
+  const [toggleState, setToggleState] = useState<boolean>(false);
+  const toggle = () => {
+    setToggleState(!toggleState);
+  };
 
   return (
     <SiteContext.Provider
       value={{
         context,
         setContext,
+        toggleState,
+        toggle,
       }}
     >
       {children}
@@ -71,9 +67,9 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   );
 };
 
-function useSiteContext() {
-  const { context } = useContext(SiteContext);
-  return context;
+function startContext() {
+  const { toggleState, toggle } = useContext(SiteContext);
+  return [toggleState, toggle];
 } //현재상황 보여줌
 
 //수정해주는 토글
@@ -95,4 +91,23 @@ function useToggleMenu() {
   return toggleMenu;
 }
 
-export { SiteContextProvider, useSiteContext, useToggleMenu };
+function useSiteContext() {
+  const { context } = useContext(SiteContext);
+  return context;
+}
+
+const useToggleStart = () => {
+  const { toggle } = useContext(SiteContext);
+
+  return toggle;
+};
+
+export {
+  SiteContextProvider,
+  startContext,
+  useSiteContext,
+  useToggleMenu,
+  useToggleStart
+};
+
+//헤더 관련과 메뉴가있음
