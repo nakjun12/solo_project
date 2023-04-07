@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from 'react';
 
 export function useHasMounted() {
   const [hasMounted, setHasMounted] = useState(false);
@@ -25,7 +25,7 @@ async function populateVoiceList(synth: SpeechSynthesis) {
 
     return voices;
   } catch (error) {
-    throw new Error("Failure retrieving voices");
+    throw new Error('Failure retrieving voices');
   }
 }
 
@@ -35,14 +35,14 @@ export async function speak(textToRead: string, synth: SpeechSynthesis) {
   }
 
   if (synth.speaking) {
-    console.error("speechSynthesis.speaking");
+    console.error('speechSynthesis.speaking');
     return;
   }
-  if (textToRead !== "") {
+  if (textToRead !== '') {
     const utterThis = new SpeechSynthesisUtterance(textToRead);
 
     utterThis.onerror = function (event) {
-      console.error("SpeechSynthesisUtterance.onerror");
+      console.error('SpeechSynthesisUtterance.onerror');
     };
 
     utterThis.pitch = pitch;

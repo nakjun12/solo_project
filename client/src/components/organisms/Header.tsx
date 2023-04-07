@@ -1,5 +1,4 @@
-import type { MenuItemType } from '@/Type/typeList.d.ts';
-import type { headerType } from '@/lib/context/MenuContext';
+import type { MenuItemType, headerType } from '@/Type/typeList.d.ts';
 import { useSiteContext } from '@/lib/context/MenuContext';
 import { useRect } from '@reach/rect';
 import { RefObject, useRef } from 'react';

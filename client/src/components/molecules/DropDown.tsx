@@ -1,6 +1,6 @@
-import type { headerType, dropDownList } from "@/lib/context/MenuContext";
-import { useToggleMenu } from "@/lib/context/MenuContext";
-import DropDownMenu from "./DropDownMenu";
+import type { dropDownList, headerType } from '@/Type/typeList.d.ts';
+import { useToggleMenu } from '@/lib/context/MenuContext';
+import DropDownMenu from './DropDownMenu';
 interface props extends headerType {
   headerheight: number | undefined;
 }

@@ -1,12 +1,11 @@
-import { quizData } from '@/lib/Dummy';
-import { useRef, useState, useEffect, useCallback } from 'react';
-import type { Quiz, Level } from '@/Type/typeList';
+import type { Level, Quiz } from '@/Type/typeList';
 import Stopwatch from '@/components/molecules/StopWatch';
+import { quizData } from '@/lib/Dummy';
+import { useEffect, useRef, useState } from 'react';
 import RadioButton from '../atmos/RadioButton';
+import useWindowWidth from '../atmos/useWindowWidth';
 
-type Props = {};
-
-export default function Quiz({}: Props) {
+export default function Quiz() {
   const [answerValue, setanswerValue] = useState<string>('');
   const [quiz, setQuiz] = useState<Quiz>();
   const [next, setNext] = useState<boolean>(false);
@@ -19,26 +18,7 @@ export default function Quiz({}: Props) {
   const { current } = answerinputRef;
 
   const quizList: Quiz[] = quizData;
-
-  const [windowWidth, setWindowWidth] = useState<number>(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const debounce = setTimeout(() => {
-        setWindowWidth(window.innerWidth);
-      }, 1000);
-      return () => {
-        clearTimeout(debounce);
-      };
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     const filterQuiz = quizList.filter(el => {
@@ -80,7 +60,7 @@ export default function Quiz({}: Props) {
   const handleToggleSound = () => {
     setIsSoundOn(prevIsSoundOn => !prevIsSoundOn);
   };
-
+  console.log(windowWidth);
   return (
     <section className="mainDiv mx-auto h-auto">
       <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">
@@ -103,8 +83,8 @@ export default function Quiz({}: Props) {
             </button>
           </form>
 
-          {windowWidth <= 640 ? (
-            <nav className=" sm:hidden">
+          {windowWidth <= 1050 ? (
+            <nav>
               <Stopwatch
                 isSoundOn={isSoundOn}
                 isActive={isActive}
@@ -135,8 +115,8 @@ export default function Quiz({}: Props) {
             <></>
           )}
         </div>
-        {windowWidth > 640 ? (
-          <nav className="hidden sm:inline">
+        {windowWidth > 1050 ? (
+          <nav>
             <Stopwatch
               isSoundOn={isSoundOn}
               isActive={isActive}

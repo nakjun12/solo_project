@@ -1,4 +1,4 @@
-import type { title } from '@/lib/context/MenuContext';
+import type { title } from '@/Type/typeList.d.ts';
 import { useToggleMenu } from '@/lib/context/MenuContext';
 import { motion } from 'framer-motion';
 import Router from 'next/router';
@@ -21,15 +21,23 @@ export default function MenuItem({
   const isUnder = title === selectTitle;
 
   const toggleHandler = () => {
-    console.log(title, isOpen, selectTitle, isUnder);
-
     if (title === 'HOME') {
       Router.push('/');
       toggleMenu(false, title);
     } else if (isUnder) {
-      toggleMenu(!isOpen, title);
+      toggleMenu(!isOpen, title); // 다시 들어올때 고려
     } else {
       toggleMenu(true, title);
+    }
+  };
+  //모바일 추가
+
+  const toggleMobileHandler = () => {
+    if (title === 'HOME') {
+      Router.push('/');
+      toggleMenu(false, 'HOME');
+    } else {
+      toggleMenu(!isOpen, 'Mobile');
     }
   };
 
@@ -37,6 +45,7 @@ export default function MenuItem({
     <div className="relative mx-4 lg:mx-6 cursor-pointer">
       {Icon && (
         <Icon
+          onClick={() => toggleMobileHandler()}
           size={'20px'}
           className="text-2xl overflow-visible sm:hidden mx-4 "
         /> //나중에 모바일 추가

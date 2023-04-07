@@ -1,13 +1,12 @@
-import React from "react";
-import { useRef, useState, useEffect, Fragment } from "react";
-import { useRect } from "@reach/rect";
-import type { dropDownList, headerType } from "@/lib/context/MenuContext";
-import { swipeAnim } from "@/lib/Animate";
-import SearchForm from "./SearchForm";
-import DropDownList from "./DropDownList";
-import { m } from "framer-motion";
-import cx from "classnames";
-import { useToggleMenu } from "@/lib/context/MenuContext";
+import type { dropDownList, headerType } from '@/Type/typeList.d.ts';
+import { swipeAnim } from '@/lib/Animate';
+import { useToggleMenu } from '@/lib/context/MenuContext';
+import { useRect } from '@reach/rect';
+import cx from 'classnames';
+import { m } from 'framer-motion';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import DropDownList from './DropDownList';
+import SearchForm from './SearchForm';
 interface props extends headerType {
   headerheight: number | undefined;
 
@@ -44,19 +43,19 @@ export default function DropDownMenu({ data, title, headerheight }: props) {
     <Fragment>
       <div
         className={`absolute top-full inset-x-0 z-20 h-3 backdrop bg-pageBG ${
-          isTrue ? "opacity-100" : "opacity-0"
+          isTrue ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ transform: `scaleY(${height})` }}
       />
 
       <div className="relative z-30 max-w-6xl mx-auto">
         <div
-          className={cx("absolute z-30", { invisible: !isTrue })}
-          ref={(ref) => (dropDownRef.current = ref)}
+          className={cx('absolute z-30', { invisible: !isTrue })}
+          ref={ref => (dropDownRef.current = ref)}
         >
           <m.div
             initial="hide"
-            animate={isTrue ? "show" : "hide"}
+            animate={isTrue ? 'show' : 'hide'}
             variants={swipeAnim}
           >
             {data.dropDownList ? (

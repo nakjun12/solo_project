@@ -1,3 +1,4 @@
+import type { dropDownList, headerType, title } from '@/Type/typeList.d.ts';
 import {
   Dispatch,
   SetStateAction,
@@ -5,24 +6,6 @@ import {
   useContext,
   useState,
 } from 'react';
-
-export type title = '퀴즈' | '화상면접' | 'HOME' | 'Search';
-
-export type dropDownValue = {
-  name: string;
-  address: string;
-};
-
-export type dropDownList = {
-  title: title | null;
-  dropDownList?: dropDownValue[];
-};
-
-export type headerType = {
-  isOpen?: boolean;
-  title: title | null;
-  dropDown?: dropDownList[] | null; //목록
-};
 
 type initialContext = {
   context: headerType;

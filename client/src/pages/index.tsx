@@ -51,3 +51,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 </Head> */
 }
 //기술면접 사진과 화상면접 사진 넣기
+// ISR 오래걸림
