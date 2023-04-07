@@ -1,6 +1,5 @@
-import { Canvas } from "@react-three/fiber";
 import Box from "@/lib/3D/Box";
-
+import { Canvas } from "@react-three/fiber";
 export default function Home() {
   return (
     <div style={{ width: "800px", height: "800px" }}>
