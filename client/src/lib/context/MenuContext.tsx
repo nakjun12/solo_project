@@ -1,16 +1,16 @@
 import {
+  Dispatch,
+  SetStateAction,
   createContext,
   useContext,
   useState,
-  Dispatch,
-  SetStateAction,
-} from "react";
+} from 'react';
 
-export type title = "퀴즈" | "화상면접" | "HOME" | "Search";
+export type title = '퀴즈' | '화상면접' | 'HOME' | 'Search';
 
 export type dropDownValue = {
-  count: number;
   name: string;
+  address: string;
 };
 
 export type dropDownList = {
@@ -34,14 +34,14 @@ type initialContext = {
 
 const dropDownDummy: dropDownList[] = [
   {
-    title: "퀴즈",
-    dropDownList: [
-      { count: 4, name: "주관식" },
-      { count: 3, name: "객관식" },
-    ],
+    title: '퀴즈',
+    dropDownList: [{ name: '프론트엔드', address: '/quiz' }],
   },
-  { title: "화상면접", dropDownList: [{ count: 3, name: "기술질문" }] },
-  { title: "Search" },
+  {
+    title: '화상면접',
+    dropDownList: [{ name: '기술질문', address: '/video' }],
+  },
+  { title: 'Search' },
 ];
 
 const initialContext: initialContext = {
@@ -121,10 +121,10 @@ const useToggleStart = () => {
 
 export {
   SiteContextProvider,
+  startContext,
   useSiteContext,
   useToggleMenu,
   useToggleStart,
-  startContext,
 };
 
 //헤더 관련과 메뉴가있음

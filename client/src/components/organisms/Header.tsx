@@ -1,14 +1,14 @@
-import MenuItem from "../molecules/MenuItem";
-import { IoMdHome } from "react-icons/Io";
-import DarkModeSwitch from "../molecules/DarkModeswitch";
-import { GiHamburgerMenu } from "react-icons/gi";
-import Search from "../molecules/Search";
-import { useSiteContext } from "@/lib/context/MenuContext";
-import DropDown from "../molecules/DropDown";
-import type { headerType } from "@/lib/context/MenuContext";
-import { useRef, RefObject } from "react";
-import { useRect } from "@reach/rect";
-import type { MenuItemType } from "@/Type/typeList.d.ts";
+import type { MenuItemType } from '@/Type/typeList.d.ts';
+import type { headerType } from '@/lib/context/MenuContext';
+import { useSiteContext } from '@/lib/context/MenuContext';
+import { useRect } from '@reach/rect';
+import { RefObject, useRef } from 'react';
+import { IoMdHome } from 'react-icons/Io';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import DarkModeSwitch from '../molecules/DarkModeswitch';
+import DropDown from '../molecules/DropDown';
+import MenuItem from '../molecules/MenuItem';
+import Search from '../molecules/Search';
 
 export default function Header() {
   const headerRef = useRef() as RefObject<HTMLDivElement>;
@@ -17,18 +17,18 @@ export default function Header() {
 
   const menuItems: MenuItemType[] = [
     {
-      title: "HOME",
-      address: "/",
+      title: 'HOME',
+      address: '/',
       Icon: IoMdHome,
     },
     {
-      title: "퀴즈",
-      address: "/quiz",
+      title: '퀴즈',
+      address: '/quiz',
       Icon: GiHamburgerMenu,
     },
     {
-      title: "화상면접",
-      address: "/video",
+      title: '화상면접',
+      address: '/video',
       Icon: null,
     },
   ];
@@ -46,6 +46,7 @@ export default function Header() {
                   address={item.address}
                   Icon={item.Icon}
                   selectTitle={title}
+                  isOpen={isOpen}
                 />
               ))}
           </div>
@@ -57,7 +58,7 @@ export default function Header() {
         </header>
       </div>
 
-      {isOpen && title !== "HOME" && (
+      {isOpen && title !== 'HOME' && (
         <>
           <DropDown
             title={title}

@@ -1,16 +1,16 @@
-import { quizData } from "@/lib/Dummy";
-import { useRef, useState, useEffect, useCallback } from "react";
-import type { Quiz, Level } from "@/Type/typeList";
-import Stopwatch from "@/components/molecules/StopWatch";
-import RadioButton from "../atmos/RadioButton";
+import { quizData } from '@/lib/Dummy';
+import { useRef, useState, useEffect, useCallback } from 'react';
+import type { Quiz, Level } from '@/Type/typeList';
+import Stopwatch from '@/components/molecules/StopWatch';
+import RadioButton from '../atmos/RadioButton';
 
 type Props = {};
 
 export default function Quiz({}: Props) {
-  const [answerValue, setanswerValue] = useState<string>("");
+  const [answerValue, setanswerValue] = useState<string>('');
   const [quiz, setQuiz] = useState<Quiz>();
   const [next, setNext] = useState<boolean>(false);
-  const [level, setlevel] = useState<Level>("전체");
+  const [level, setlevel] = useState<Level>('전체');
   const answerinputRef = useRef<HTMLInputElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isSoundOn, setIsSoundOn] = useState(true);
@@ -33,16 +33,16 @@ export default function Quiz({}: Props) {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    const filterQuiz = quizList.filter((el) => {
-      if (level === "전체") {
+    const filterQuiz = quizList.filter(el => {
+      if (level === '전체') {
         return true;
       }
 
@@ -59,7 +59,7 @@ export default function Quiz({}: Props) {
   }, [next, isActive, level]);
 
   useEffect(() => {
-    if (answerValue !== "") {
+    if (answerValue !== '') {
     } //정답체크
   }, [answerValue]);
 
@@ -68,7 +68,7 @@ export default function Quiz({}: Props) {
 
     if (!current) return;
     else setanswerValue(current.value);
-    current.value = "";
+    current.value = '';
     setIsActive(false); // 타이머
     setResult(true); // 답 입력시에 값 안바뀌게 잡아줌
   };
@@ -78,7 +78,7 @@ export default function Quiz({}: Props) {
   };
 
   const handleToggleSound = () => {
-    setIsSoundOn((prevIsSoundOn) => !prevIsSoundOn);
+    setIsSoundOn(prevIsSoundOn => !prevIsSoundOn);
   };
 
   return (
@@ -86,7 +86,7 @@ export default function Quiz({}: Props) {
       <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">
         <div className="mr-12">
           <h1 className="quizQuestion flex items-center justify-center">
-            {isActive ? quiz?.question : "시작을 눌러주세요"}
+            {isActive ? quiz?.question : '시작을 눌러주세요'}
           </h1>
           <form className="user-input flex items-center" onSubmit={onSubmit}>
             <input
@@ -94,7 +94,7 @@ export default function Quiz({}: Props) {
               type="text"
               ref={answerinputRef}
               placeholder={
-                isActive ? "정답을 입력해주세요" : "start를 눌러주세요"
+                isActive ? '정답을 입력해주세요' : 'start를 눌러주세요'
               }
               disabled={!isActive}
             />
@@ -117,7 +117,7 @@ export default function Quiz({}: Props) {
               />
               <RadioButton level={level} setlevel={setlevel} />
 
-              <div className="my-8 flex">
+              <div className="my-8 flex justify-center">
                 <button type="button" onClick={() => nextLevel()}>
                   다음 문제
                 </button>
@@ -127,7 +127,7 @@ export default function Quiz({}: Props) {
                   className="ml-4"
                   onClick={handleToggleSound}
                 >
-                  {isSoundOn ? "Sound Off" : "Sound On"}
+                  {isSoundOn ? 'Sound Off' : 'Sound On'}
                 </button>
               </div>
             </nav>
@@ -148,7 +148,7 @@ export default function Quiz({}: Props) {
               setResult={setResult}
             />
             <RadioButton level={level} setlevel={setlevel} />
-            <div className="my-8">
+            <div className="my-8 flex">
               <button type="button" onClick={() => nextLevel()}>
                 다음 문제
               </button>
@@ -158,7 +158,7 @@ export default function Quiz({}: Props) {
                 className="ml-4"
                 onClick={handleToggleSound}
               >
-                {isSoundOn ? "Sound Off" : "Sound On"}
+                {isSoundOn ? 'Sound Off' : 'Sound On'}
               </button>
             </div>
           </nav>
@@ -166,21 +166,21 @@ export default function Quiz({}: Props) {
           <></>
         )}
       </div>
-      <ul className="flex flex-col sm:flex-row ">
+      <ul className="flex flex-col item-center mt-12">
         <li className="output-container">
           <label>
-            {answerValue !== ""
+            {answerValue !== ''
               ? quiz?.answer.includes(answerValue)
-                ? " 정답입니다"
+                ? ' 정답입니다'
                 : ` 오답입니다 `
-              : "퀴즈의 키워드를 맞춰보세요"}
+              : '퀴즈의 키워드를 맞춰보세요'}
           </label>
 
-          {answerValue !== "" ? answerValue : ""}
+          {answerValue !== '' ? answerValue : ''}
         </li>
         <li className="output-container">
           <label>정답</label>
-          {answerValue !== "" ? quiz?.answer : ""}
+          {answerValue !== '' ? quiz?.answer : ''}
         </li>
       </ul>
     </section>

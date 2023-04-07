@@ -16,18 +16,18 @@
   --black-hsl: 0, 0%, 0%;
   --white-hsl: 0, 0%, 100%;
   --button: #4caf50;
-  --pageBG: #f4f4f0;
-  --pageText: #000000;
-  --block: #f4f4f0;
+  --pageBG: #ffffff;
+  --pageText: #333333;
+  --block: #f2f2f2;
   --pageBG-hsl: 60, 14%, 95%;
   --pageText-hsl: 0, 0%, 0%;
 }
 
 [data-theme='dark'] {
-  --pageBG: #000000;
+  --pageBG: #333333;
   --pageText: #f4f4f0;
-  --block: linear-gradient(#16455f, #0e1239);
-  --button: green;
+  --block: #333333;
+  --button: #4caf50;
   --pageBG-hsl: 0, 0%, 0%;
   --pageText-hsl: 60, 14%, 95%;
 }

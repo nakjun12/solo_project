@@ -25,21 +25,21 @@ const quizData = [
   },
   {
     id: 5,
-    question: 'JavaScript에서 사용되는 호이스팅(Hoisting)이란 무엇인가요?',
+    question: 'JavaScript에서 사용되는 Hoisting이란 무엇인가요?',
     answer:
       '변수 선언이나 함수 선언이 소스코드의 상단으로 끌어올려지는 현상입니다.',
     level: '중급',
   },
   {
     id: 6,
-    question: 'JavaScript에서 Closure(클로저)란 무엇인가요?',
+    question: 'JavaScript에서 Closure란 무엇인가요?',
     answer:
       '함수와 그 함수가 선언된 렉시컬 환경(Lexical Environment)과의 조합입니다.',
     level: '중급',
   },
   {
     id: 7,
-    question: 'JavaScript에서 Promise(프로미스)란 무엇인가요?',
+    question: 'JavaScript에서 Promise란 무엇인가요?',
     answer:
       '비동기 작업의 결과를 나타내는 객체로, 비동기 작업이 완료되면 성공 결과 또는 실패 결과를 반환합니다.',
     level: '중급',
@@ -80,13 +80,13 @@ const quizData = [
   },
   {
     id: 13,
-    question: 'JavaScript에서 Module(모듈)이란 무엇인가요?',
+    question: 'JavaScript에서 Module이란 무엇인가요?',
     answer: '자바스크립트 파일 내에서 독립적으로 작동하는 코드 단위입니다.',
     level: '고급',
   },
   {
     id: 14,
-    question: 'JavaScript에서 Event Loop(이벤트 루프)란 무엇인가요?',
+    question: 'JavaScript에서 Event Loop란 무엇인가요?',
     answer: '비동기적인 코드 실행을 관리하는 내부 처리 메커니즘입니다.',
     level: '고급',
   },

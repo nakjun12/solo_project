@@ -1,5 +1,7 @@
-import { useRef, useState } from 'react';
 import ReadString from '@/components/molecules/ReadString';
+import { useRef, useState } from 'react';
+import { BsPlayCircleFill, BsStopCircleFill } from 'react-icons/bs';
+import { ImFloppyDisk } from 'react-icons/im';
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -82,27 +84,30 @@ export default function Home() {
             ref={videoRef}
             autoPlay={true}
             className="
-          w-full sm:w-2/4 h-[400px] object-cover"
+          h-[400px] object-cover"
           />
-          <button onClick={startRecording} disabled={isRecording}>
-            {isRecording ? 'Recording...' : 'Start'}
-          </button>
-          {isRecording && (
-            <button
-              onClick={() => {
-                stopVideo();
-              }}
-            >
-              정지
-            </button>
-          )}
+          <section className="mt-10">
+            <div className="flex flex-row justify-center my-6">
+              {isRecording ? (
+                <button
+                  onClick={() => {
+                    stopVideo();
+                  }}
+                >
+                  <BsStopCircleFill size={30} />
+                </button>
+              ) : (
+                <button onClick={startRecording}>
+                  <BsPlayCircleFill size={30} />
+                </button>
+              )}
+              <button className="ml-8" onClick={() => stopRecording()}>
+                <ImFloppyDisk size={30} />
+              </button>
+            </div>
 
-          <button onClick={() => stopRecording()}>
-            Stop recording and download
-          </button>
-          <h1 className="">기술면접 버튼 만들고, 질문 생성할 것</h1>
-
-          <ReadString />
+            <ReadString />
+          </section>
         </div>
       </main>
     </>
@@ -112,3 +117,4 @@ export default function Home() {
 //헤드 설정 잊지말것
 //읽어주는 것 문제 내기 정답 출력
 //저장하는 것 대신에 출력하는것도 괜찮다.
+//

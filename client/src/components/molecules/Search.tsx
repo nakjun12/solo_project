@@ -1,14 +1,14 @@
-import { AiOutlineSearch } from "react-icons/ai";
-import { useToggleMenu } from "@/lib/context/MenuContext";
-import { useState } from "react";
-import type { title } from "@/lib/context/MenuContext";
+import { AiOutlineSearch } from 'react-icons/ai';
+import { useToggleMenu } from '@/lib/context/MenuContext';
+
+import type { title } from '@/lib/context/MenuContext';
 
 export default function Search({ title }: { title: title | null }) {
   const toggleMenu = useToggleMenu();
   const searchToggle = () => {
-    if (title !== "Search") {
-      toggleMenu(true, "Search");
-    } else if (title === "Search") {
+    if (title !== 'Search') {
+      toggleMenu(true, 'Search');
+    } else if (title === 'Search') {
       toggleMenu(false);
     }
 
@@ -18,7 +18,7 @@ export default function Search({ title }: { title: title | null }) {
 
   return (
     <div className="mx-4 cursor-pointer" onClick={() => searchToggle()}>
-      <AiOutlineSearch size={"20px"} />
+      <AiOutlineSearch size={'20px'} />
     </div>
   );
 }

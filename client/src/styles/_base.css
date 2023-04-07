@@ -71,9 +71,7 @@
   .mainDiv {
     height: 90vh;
   }
-  .img_motion {
-    position: absolute;
-  }
+
   .output-container {
     display: flex;
     flex-direction: column;
@@ -93,6 +91,26 @@
     border-radius: 20px;
     box-shadow: 2px 2px 5px gray;
   }
+  .output-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    max-width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 50px;
+    background: var(--block);
+    border: 2px solid #ccc;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px gray;
+  }
 
   .answer {
     font-weight: bold;
@@ -109,37 +127,37 @@
     display: flex;
   }
 
-  button[type="submit"] {
+  button[type='submit'] {
     background-color: var(--button);
     border: none;
     font-weight: bold;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  button[type="submit"]:hover {
+  button[type='submit']:hover {
     background-color: #3e8e41;
   }
 
-  button[type="button"] {
+  button[type='button'] {
     background-color: var(--button);
     border: none;
     font-weight: bold;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  button[type="button"]:hover {
+  button[type='button']:hover {
     background-color: #3e8e41;
   }
 }

@@ -1,6 +1,4 @@
-import Stopwatch from "@/components/molecules/StopWatch";
-import { useRef, useState, useEffect } from "react";
-import Quiz from "@/components/molecules/Quiz";
+import Quiz from '@/components/molecules/Quiz';
 
 export default function index() {
   return (

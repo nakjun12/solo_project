@@ -1,7 +1,6 @@
-import { useState } from "react";
-import MainCarousel from "@/components/molecules/mainCarousel";
-import fetchQuotes from "@/pages/api/fetchQuotes";
-import type { GetStaticProps } from "next";
+import fetchQuotes from '@/pages/api/fetchQuotes';
+import type { GetStaticProps } from 'next';
+import { useState } from 'react';
 
 type Props = {
   initialQuote: any;
@@ -17,8 +16,6 @@ export default function Quotes({ initialQuote }: Props) {
 
   return (
     <div>
-      <MainCarousel />
-
       <h1>명언 랜덤 출력기</h1>
       {quote ? (
         <div>
@@ -38,7 +35,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       initialQuote: initialQuote.slip.advice,
     },
-    revalidate: 3600, // 1 hour
   };
 };
 
