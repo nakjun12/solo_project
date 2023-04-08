@@ -60,7 +60,7 @@ export default function Quiz() {
   const handleToggleSound = () => {
     setIsSoundOn(prevIsSoundOn => !prevIsSoundOn);
   };
-  console.log(windowWidth);
+
   return (
     <section className="mainDiv mx-auto h-auto">
       <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">

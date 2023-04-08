@@ -9,7 +9,7 @@ const ReadString = () => {
   const [quiz, setQuiz] = useState<Quiz>();
   const [isCheck, setIsCheck] = useState<boolean>(false);
   const quizList: Quiz[] = quizData;
-  console.log(quiz);
+
   useEffect(() => {
     const filterQuiz = quizList.filter(el => {
       if (level === '전체') {

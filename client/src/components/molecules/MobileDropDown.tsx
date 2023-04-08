@@ -5,7 +5,7 @@ import { GrClose } from 'react-icons/Gr';
 
 export default function MobileDropDown({ dropDown, isOpen }: headerType) {
   const toggleMenu = useToggleMenu();
-  console.log(dropDown);
+
   return (
     <>
       <m.div
