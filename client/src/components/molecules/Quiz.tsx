@@ -21,7 +21,7 @@ export default function Quiz() {
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
-    const filterQuiz = quizList.filter(el => {
+    const filterQuiz = quizList.filter((el) => {
       if (level === '전체') {
         return true;
       }
@@ -58,7 +58,7 @@ export default function Quiz() {
   };
 
   const handleToggleSound = () => {
-    setIsSoundOn(prevIsSoundOn => !prevIsSoundOn);
+    setIsSoundOn((prevIsSoundOn) => !prevIsSoundOn);
   };
 
   return (
@@ -83,7 +83,7 @@ export default function Quiz() {
             </button>
           </form>
 
-          {windowWidth <= 1050 ? (
+          {windowWidth <= 1050 && windowWidth > 0 ? (
             <nav>
               <Stopwatch
                 isSoundOn={isSoundOn}

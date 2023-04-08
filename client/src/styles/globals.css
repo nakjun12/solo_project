@@ -10,6 +10,9 @@
 :root {
   /* font-family: 'Poppins', sans-serif; */
   font-family: 'GmarketSansBold';
+  font-weight: 500;
+  --Poppins: 'Poppins', sans-serif;
+  --BeVietnamPro: 'Be Vietnam Pro', sans-serif;
   --black: #000000;
   --white: #ffffff;
 

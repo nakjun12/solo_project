@@ -1,25 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
 
   theme: {
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+      bevietnam: ['BeVietnam', 'sans-serif'],
+    },
+
     colors: {
-      inherit: "inherit", //부모 요소 상속
-      transparent: "transparent", // 투명
-      current: "currentColor", //글자색 그대로사용
-      black: "#000000",
-      white: "#FFFFFF",
-      pageBG: "var(--pageBG)", //테일윈드 추가
-      pageText: "var(--pageText)",
-      blue: "#1a0dab",
-      orange: "#F5541F",
-      green: "#0F770D",
-      button: "var(--button)",
-      block: "var(--block)",
+      inherit: 'inherit', //부모 요소 상속
+      transparent: 'transparent', // 투명
+      current: 'currentColor', //글자색 그대로사용
+      black: '#000000',
+      white: '#FFFFFF',
+      pageBG: 'var(--pageBG)', //테일윈드 추가
+      pageText: 'var(--pageText)',
+      blue: '#1a0dab',
+      orange: '#F5541F',
+      green: '#0F770D',
+      button: 'var(--button)',
+      block: 'var(--block)',
     },
     extend: {
       padding: {
-        "2px": "2px",
+        '2px': '2px',
       },
     },
     scale: new Array(161)
@@ -38,7 +43,7 @@ module.exports = {
         return acc;
       }, {}),
   },
-  mode: "jit",
+  mode: 'jit',
   plugins: [],
-  darkMode: "class",
+  darkMode: 'class',
 };

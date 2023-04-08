@@ -3,6 +3,7 @@ import { quizData } from '@/lib/Dummy';
 import { speak } from '@/lib/Helpers';
 import { useEffect, useState } from 'react';
 import RadioButton from '../atmos/RadioButton';
+
 const ReadString = () => {
   const [next, setNext] = useState<boolean>(false);
   const [level, setlevel] = useState<Level>('전체');
@@ -11,7 +12,7 @@ const ReadString = () => {
   const quizList: Quiz[] = quizData;
 
   useEffect(() => {
-    const filterQuiz = quizList.filter(el => {
+    const filterQuiz = quizList.filter((el) => {
       if (level === '전체') {
         return true;
       }
@@ -29,7 +30,7 @@ const ReadString = () => {
     speechSynthesis.cancel();
     speak(
       quiz?.question || 'JavaScript에서 객체를 만드는 방법은 무엇인가요?',
-      window.speechSynthesis
+      window.speechSynthesis,
     );
   };
 

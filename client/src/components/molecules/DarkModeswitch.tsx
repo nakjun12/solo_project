@@ -2,8 +2,8 @@ import { useHasMounted } from '@/lib/Helpers';
 import { useTheme } from 'next-themes';
 
 const themes = [
-  { title: 'Light Mode', name: 'light', color: { hex: '#f4f4f0' } },
   { title: 'Dark Mode', name: 'dark', color: { hex: '#000000' } },
+  { title: 'Light Mode', name: 'light', color: { hex: '#f4f4f0' } },
 ];
 
 const DarkModeSwitch = () => {
@@ -15,7 +15,7 @@ const DarkModeSwitch = () => {
   // store our current and next theme objects (will be first theme, if undefined)
   const currentIndex = Math.max(
     0,
-    themes.findIndex(t => t.name === theme)
+    themes.findIndex((t) => t.name === theme),
   );
 
   const nextTheme = themes[(currentIndex + 1) % themes.length];

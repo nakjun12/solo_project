@@ -19,7 +19,7 @@ export default function DropDown({
   //히든으로 모바일 지우기
   return (
     <nav className="hidden sm:inline inset-x-0 bg-pageBG">
-      <div className="font-bold relative pb-4">
+      <div className="font-bold relative">
         {dropDown?.map((data: dropDownList, index: number) => {
           return (
             <DropDownMenu
@@ -31,10 +31,6 @@ export default function DropDown({
           );
         })}
       </div>
-
-      {/* <div
-        className={`absolute top-full inset-x-0 z-20 h-1 bg-pageBG bg-color scale-y-150`}
-      ></div> */}
     </nav>
   );
 }

@@ -1,18 +1,33 @@
 import Animation from '@/components/atmos/Animation';
 import MainTap from '@/components/molecules/MainTap';
 import { useState } from 'react';
+import MainBlock from '../components/organisms/MainBlock';
+
 export default function Quotes() {
   const [activeTab, setActiveTab] = useState<number>(1);
   return (
-    <main className="flex">
-      <section className="flex flex-col items-center">
-        {activeTab === 1 && <h1>퀴즈</h1>}
-        {activeTab === 2 && <h1>화상면접</h1>}
-        <MainTap activeTab={activeTab} setActiveTab={setActiveTab} />
+    <main>
+      <section className="flex w-full min-w-[400px] mx-auto flex-col sm:flex-row mt-20 items-start justify-around ">
+        <div className="flex flex-col min-w-[350px] pr-20 text-2xl font-bevietnam my-20 sm:my-auto">
+          {activeTab === 1 && (
+            <h1 className="font-bold whitespace-nowrap">
+              키워드 퀴즈로 면접에 대비하세요!
+            </h1>
+          )}
+          {activeTab === 2 && (
+            <h1 className="font-bold whitespace-nowrap">
+              가상 면접으로 준비하세요!
+            </h1>
+          )}
+          <MainTap activeTab={activeTab} setActiveTab={setActiveTab} />
+        </div>
+        <div>
+          <Animation activeTab={activeTab} />
+        </div>
       </section>
-      <div>
-        <Animation activeTab={activeTab} />
-      </div>
+      <section>
+        <MainBlock />
+      </section>
     </main>
   );
 }

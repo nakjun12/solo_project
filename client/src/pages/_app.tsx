@@ -26,7 +26,7 @@ const Site = ({ Component, pageProps, router }: AppProps) => {
             exit="hide"
             variants={pageTransitionAnim}
           >
-            <div className=" bg-pageBG  text-pageText transition-colors duration-300 min-h-screen select-none">
+            <div className=" bg-pageBG  text-pageText transition-colors duration-300 min-h-screen select-none ">
               <Header />
               <div className="mx-auto max-w-6xl">
                 <Component {...pageProps} />
