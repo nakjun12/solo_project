@@ -1,31 +1,49 @@
 import Animation from '@/components/atmos/Animation';
 import MainTap from '@/components/molecules/MainTap';
-import { useState } from 'react';
-import MainBlock from '../components/organisms/MainBlock';
+import MainBlock from '@/components/organisms/MainBlock';
+import { swipeAnim } from '@/lib/Animate';
+import { m } from 'framer-motion';
+import { useMemo, useState } from 'react';
 
 export default function Quotes() {
   const [activeTab, setActiveTab] = useState<number>(1);
+  const activeBoolean = useMemo(() => {
+    return activeTab === 1 ? true : false;
+  }, [activeTab]);
+
   return (
     <main>
-      <section className="flex w-full min-w-[400px] mx-auto flex-col sm:flex-row mt-20 items-start justify-around ">
-        <div className="flex flex-col min-w-[350px] pr-20 text-2xl font-bevietnam my-20 sm:my-auto">
-          {activeTab === 1 && (
-            <h1 className="font-bold whitespace-nowrap">
-              키워드 퀴즈로 면접에 대비하세요!
-            </h1>
+      <section className="flex w-full flex-col sm:flex-row mt-20 items-start justify-around ">
+        <div className="flex flex-col min-x-[350px] sm:min-w-[500px] pr-20 text-3xl font-bevietnam my-20 sm:my-auto">
+          {activeBoolean && (
+            <m.div
+              initial="hide"
+              animate={activeBoolean ? 'show' : 'hide'}
+              variants={swipeAnim}
+            >
+              <h1 className="font-bold leading-snug sm:whitespace-nowrap">
+                키워드 퀴즈로 면접에 대비하세요!
+              </h1>
+            </m.div>
           )}
-          {activeTab === 2 && (
-            <h1 className="font-bold whitespace-nowrap">
-              가상 면접으로 준비하세요!
-            </h1>
+          {!activeBoolean && (
+            <m.div
+              initial="hide"
+              animate={!activeBoolean ? 'show' : 'hide'}
+              variants={swipeAnim}
+            >
+              <h1 className="font-bold leading-snug sm:whitespace-nowrap">
+                영상으로 면접을 준비하세요!
+              </h1>
+            </m.div>
           )}
-          <MainTap activeTab={activeTab} setActiveTab={setActiveTab} />
+          <MainTap activeBoolean={activeBoolean} setActiveTab={setActiveTab} />
         </div>
         <div>
-          <Animation activeTab={activeTab} />
+          <Animation activeBoolean={activeBoolean} />
         </div>
       </section>
-      <section>
+      <section className="mt-40">
         <MainBlock />
       </section>
     </main>

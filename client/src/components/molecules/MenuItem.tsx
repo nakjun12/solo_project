@@ -1,7 +1,7 @@
 import type { title } from '@/Type/typeList.d.ts';
 import { useToggleMenu } from '@/lib/context/MenuContext';
 import { motion } from 'framer-motion';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import { IconType } from 'react-icons/lib';
 
 export default function MenuItem({
@@ -19,11 +19,13 @@ export default function MenuItem({
 }) {
   const toggleMenu = useToggleMenu();
   const isUnder = title === selectTitle;
-
+  const router = useRouter();
   const toggleHandler = () => {
     if (title === 'HOME') {
-      Router.push('/');
-      toggleMenu(false, title);
+      if (router.pathname !== '/') {
+        router.push('/');
+      }
+      toggleMenu(false);
     } else if (isUnder) {
       toggleMenu(!isOpen, title); // 다시 들어올때 고려
     } else {
@@ -51,7 +53,7 @@ export default function MenuItem({
       >
         {title}
         {isUnder ? (
-          <motion.div className="sm:underline" layoutId="underline" />
+          <motion.div className="sm:underline" layoutId="menu" />
         ) : null}
       </div>
     </div>

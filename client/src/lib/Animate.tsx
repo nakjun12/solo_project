@@ -3,10 +3,10 @@ const pageTransitionSpeed = 300;
 const swipeAnim = {
   show: {
     opacity: 1,
-    x: ["-1rem", "0rem"],
+    x: ['-1rem', '0rem'],
     transition: {
       x: {
-        duration: 0.8,
+        duration: 1.5,
         delay: 0.1,
         ease: [0.16, 1, 0.3, 1],
       },
@@ -17,11 +17,11 @@ const swipeAnim = {
     },
   },
   hide: {
-    x: ["0rem", "1rem"],
+    x: ['0rem', '1rem'],
     opacity: 0,
     transition: {
       x: {
-        duration: 0.4,
+        duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
       },
       opacity: {
@@ -37,16 +37,16 @@ const pageTransitionAnim = {
     transition: {
       duration: pageTransitionSpeed / 1000,
       delay: 0.2,
-      ease: "linear",
-      when: "beforeChildren",
+      ease: 'linear',
+      when: 'beforeChildren',
     },
   },
   hide: {
     opacity: 0,
     transition: {
       duration: pageTransitionSpeed / 1000,
-      ease: "linear",
-      when: "beforeChildren",
+      ease: 'linear',
+      when: 'beforeChildren',
     },
   },
 };
@@ -62,7 +62,7 @@ const variants = {
     x: 0, //기본 위치
     opacity: 1,
     transition: {
-      x: { type: "spring", stiffness: 100, damping: 30 },
+      x: { type: 'spring', stiffness: 100, damping: 30 },
       opacity: { duration: 0.2 },
     },
   },
@@ -74,4 +74,4 @@ const variants = {
     };
   },
 };
-export { swipeAnim, pageTransitionAnim, pageTransitionSpeed, variants };
+export { pageTransitionAnim, pageTransitionSpeed, swipeAnim, variants };

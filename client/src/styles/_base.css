@@ -45,8 +45,19 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--pageText);
+    background: var(--button);
   }
+
+  .mainTab {
+    position: absolute;
+    bottom: 0;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--button);
+  }
+
   .quizQuestion {
     min-height: 200px;
 

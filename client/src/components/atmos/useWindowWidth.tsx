@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 const useWindowWidth = () => {
   const hasMounted = useHasMounted();
   const [windowWidth, setWindowWidth] = useState(
-    hasMounted ? window.innerWidth : 0
+    hasMounted ? window.innerWidth : 1060,
   );
 
   const handleResize = useCallback(() => {
