@@ -20,7 +20,7 @@ export default function Home() {
 
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia(
-        constraints
+        constraints,
       ); //비디오 값을 가져옴
       const videoElem = videoRef.current;
 
@@ -32,7 +32,7 @@ export default function Home() {
         }); //녹화 세팅
         mediaRecorderRef.current.addEventListener(
           'dataavailable',
-          handleDataAvailable
+          handleDataAvailable,
         ); // Blob 상태로 저장
         mediaRecorderRef.current.start(); //녹화 시작
         setIsRecording(true);
@@ -68,6 +68,7 @@ export default function Home() {
     a.click();
 
     recordedChunksRef.current = [];
+    videoRef.current?.pause();
   }
   const stopVideo = () => {
     if (isRecording && videoRef.current) {

@@ -32,12 +32,12 @@ export default function MainTab({
     <div className="flex flex-col">
       <div className="flex">
         <Tab
-          label="탭 1"
+          label="퀴즈"
           active={activeTab === 1}
           onClick={() => handleTabClick(1)}
         />
         <Tab
-          label="탭 2"
+          label="화상면접"
           active={activeTab === 2}
           onClick={() => handleTabClick(2)}
         />

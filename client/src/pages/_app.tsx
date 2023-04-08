@@ -1,34 +1,41 @@
-import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
-import type { AppProps } from "next/app";
-import Header from "@/components/organisms/Header";
-import { SiteContextProvider } from "@/lib/context/MenuContext";
-import { LazyMotion, domAnimation, AnimatePresence, m } from "framer-motion";
-import { pageTransitionAnim } from "@/lib/Animate";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
-import "../styles/tailwind.css";
+import Header from '@/components/organisms/Header';
+import { pageTransitionAnim } from '@/lib/Animate';
+import { SiteContextProvider } from '@/lib/context/MenuContext';
+import '@/styles/globals.css';
+import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
+import { ThemeProvider } from 'next-themes';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import '../styles/tailwind.css';
 
 const Site = ({ Component, pageProps, router }: AppProps) => {
   return (
-    <LazyMotion features={domAnimation}>
-      <AnimatePresence mode="wait">
-        <m.div
-          key={router._inFlightRoute}
-          initial="hide"
-          animate="show"
-          exit="hide"
-          variants={pageTransitionAnim}
-        >
-          <div className=" bg-pageBG  text-pageText transition-colors duration-300 min-h-screen select-none">
-            <Header />
-            <div className="mx-auto max-w-6xl">
-              <Component {...pageProps} />
+    <>
+      <Head>
+        <title>기술면접</title>
+        <meta name="description" content="기술면접 사이트입니다." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/laptop.png" />
+      </Head>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence mode="wait">
+          <m.div
+            key={router._inFlightRoute}
+            initial="hide"
+            animate="show"
+            exit="hide"
+            variants={pageTransitionAnim}
+          >
+            <div className=" bg-pageBG  text-pageText transition-colors duration-300 min-h-screen select-none">
+              <Header />
+              <div className="mx-auto max-w-6xl">
+                <Component {...pageProps} />
+              </div>
             </div>
-          </div>
-        </m.div>
-      </AnimatePresence>
-    </LazyMotion>
+          </m.div>
+        </AnimatePresence>
+      </LazyMotion>
+    </>
   );
 };
 //lazymotion 애니메이션 지연 기능 렌더링을 더 빠르게

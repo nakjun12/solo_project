@@ -1,21 +1,13 @@
 import Animation from '@/components/atmos/Animation';
 import MainTap from '@/components/molecules/MainTap';
-import Head from 'next/head';
 import { useState } from 'react';
 export default function Quotes() {
   const [activeTab, setActiveTab] = useState<number>(1);
   return (
     <main className="flex">
-      <Head>
-        <title>기술면접</title>
-        <meta name="description" content="기술면접 사이트입니다." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/laptop.png" />
-      </Head>
-
       <section className="flex flex-col items-center">
-        {activeTab === 1 && <p>퀴즈</p>}
-        {activeTab === 2 && <p>화상면접</p>}
+        {activeTab === 1 && <h1>퀴즈</h1>}
+        {activeTab === 2 && <h1>화상면접</h1>}
         <MainTap activeTab={activeTab} setActiveTab={setActiveTab} />
       </section>
       <div>
