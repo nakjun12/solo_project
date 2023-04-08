@@ -78,7 +78,7 @@ export default function Header() {
             />
           </>
         )}
-      {windowWidth < 640 && (
+      {windowWidth < 640 && windowWidth>0&& (
         <>
           <MobileDropDown dropDown={dropDown} isOpen={isOpen} />
         </>

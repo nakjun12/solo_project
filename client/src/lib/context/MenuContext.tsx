@@ -18,11 +18,11 @@ type initialContext = {
 const dropDownDummy: dropDownList[] = [
   {
     title: '퀴즈',
-    dropDownList: [{ name: '프론트엔드', address: '/quiz' }],
+    dropDownList: [{ name: '키워드 퀴즈', address: '/quiz' }],
   },
   {
     title: '화상면접',
-    dropDownList: [{ name: '기술질문', address: '/video' }],
+    dropDownList: [{ name: '화상 면접', address: '/video' }],
   },
   { title: 'Search' },
 ];

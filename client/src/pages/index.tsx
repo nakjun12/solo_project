@@ -1,43 +1,38 @@
-import MainCarousel from '@/components/molecules/mainCarousel';
-import fetchQuotes from '@/pages/api/fetchQuotes';
-import type { GetStaticProps } from 'next';
+import Animation from '@/components/atmos/Animation';
+import MainTap from '@/components/molecules/MainTap';
+import Head from 'next/head';
 import { useState } from 'react';
-type Props = {
-  initialQuote: any;
-};
-
-export default function Quotes({ initialQuote }: Props) {
-  const [quote, setQuote] = useState<string | null>(initialQuote);
-
-  const handleNewQuoteClick = async () => {
-    const newQuote = await fetchQuotes();
-    setQuote(newQuote.slip.advice);
-  };
-
+export default function Quotes() {
+  const [activeTab, setActiveTab] = useState<number>(1);
   return (
-    <div>
-      <MainCarousel></MainCarousel>
-      <h1>명언 랜덤 출력기</h1>
-      {quote ? (
-        <div>
-          <p>"{quote}"</p>
-        </div>
-      ) : (
-        <p>명언을 불러오는 중입니다...</p>
-      )}
-      <button onClick={handleNewQuoteClick}>새로운 명언</button>
-    </div>
+    <main className="flex">
+      <Head>
+        <title>기술면접</title>
+        <meta name="description" content="기술면접 사이트입니다." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/laptop.png" />
+      </Head>
+
+      <section className="flex flex-col items-center">
+        {activeTab === 1 && <p>퀴즈</p>}
+        {activeTab === 2 && <p>화상면접</p>}
+        <MainTap activeTab={activeTab} setActiveTab={setActiveTab} />
+      </section>
+      <div>
+        <Animation activeTab={activeTab} />
+      </div>
+    </main>
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const initialQuote = await fetchQuotes();
-  return {
-    props: {
-      initialQuote: initialQuote.slip.advice,
-    },
-  };
-};
+// export const getStaticProps: GetStaticProps<Props> = async () => {
+//   const initialQuote = await fetchQuotes();
+//   return {
+//     props: {
+//       initialQuote: initialQuote.slip.advice,
+//     },
+//   };
+// };
 
 //헤드 설정 잊지말것
 {
