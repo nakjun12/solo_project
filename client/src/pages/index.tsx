@@ -13,15 +13,15 @@ export default function Quotes() {
 
   return (
     <main>
-      <section className="flex w-full flex-col sm:flex-row mt-20 items-start justify-around ">
-        <div className="flex flex-col min-x-[350px] sm:min-w-[500px] pr-20 text-3xl font-bevietnam my-20 sm:my-auto">
+      <section className="flex w-full flex-col lg:flex-row mt-20 items-start justify-around ">
+        <div className="flex flex-col min-x-[350px] sm:min-w-[500px] pr-20 text-3xl font-bevietnam my-20 mx-auto sm:my-auto">
           {activeBoolean && (
             <m.div
               initial="hide"
               animate={activeBoolean ? 'show' : 'hide'}
               variants={swipeAnim}
             >
-              <h1 className="font-bold leading-snug sm:whitespace-nowrap">
+              <h1 className="font-bold leading-snug ">
                 키워드 퀴즈로 면접에 대비하세요!
               </h1>
             </m.div>
@@ -32,14 +32,14 @@ export default function Quotes() {
               animate={!activeBoolean ? 'show' : 'hide'}
               variants={swipeAnim}
             >
-              <h1 className="font-bold leading-snug sm:whitespace-nowrap">
+              <h1 className="font-bold leading-snug ">
                 영상으로 면접을 준비하세요!
               </h1>
             </m.div>
           )}
           <MainTap activeBoolean={activeBoolean} setActiveTab={setActiveTab} />
         </div>
-        <div>
+        <div className="mx-auto">
           <Animation activeBoolean={activeBoolean} />
         </div>
       </section>

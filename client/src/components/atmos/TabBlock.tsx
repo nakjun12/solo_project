@@ -7,7 +7,6 @@ export default function TabBlock({
   active: boolean;
   onClick: () => void;
 }) {
-  console.log(active, label);
   return (
     <div>
       <label
