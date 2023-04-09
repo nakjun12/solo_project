@@ -12,8 +12,11 @@ const Site = ({ Component, pageProps, router }: AppProps) => {
   return (
     <>
       <Head>
-        <title>기술면접</title>
-        <meta name="description" content="기술면접 사이트입니다." />
+        <title>ROOT</title>
+        <meta
+          name="description"
+          content="기술 공부는 개발자의 뿌리입니다. 기술면접을 ROOT와 함께 대비하세요!."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/laptop.png" />
       </Head>
