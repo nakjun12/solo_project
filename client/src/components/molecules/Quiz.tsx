@@ -1,6 +1,7 @@
 import type { Level, Quiz } from '@/Type/typeList';
 import Stopwatch from '@/components/molecules/StopWatch';
 import { quizData } from '@/lib/Dummy';
+
 import { useEffect, useRef, useState } from 'react';
 import RadioButton from '../atmos/RadioButton';
 import useWindowWidth from '../atmos/useWindowWidth';
@@ -62,7 +63,7 @@ export default function Quiz() {
   };
 
   return (
-    <section className="mainDiv mx-auto h-auto">
+    <main className="mainDiv mx-auto h-auto">
       <div className="sm:flex  max-w-6xl mx-auto justify-around items-center sm:px-54">
         <div className="mr-12">
           <h1 className="quizQuestion flex items-center justify-center">
@@ -146,7 +147,8 @@ export default function Quiz() {
           <></>
         )}
       </div>
-      <ul className="flex flex-col item-center mt-12">
+
+      <ul className="flex flex-col mt-12 w-full mx-auto">
         <li className="output-container">
           <label>
             {answerValue !== ''
@@ -163,7 +165,7 @@ export default function Quiz() {
           {answerValue !== '' ? quiz?.answer : ''}
         </li>
       </ul>
-    </section>
+    </main>
   );
 }
 //stop워치 이동할것임

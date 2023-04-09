@@ -1,4 +1,5 @@
 import ReadString from '@/components/molecules/ReadString';
+
 import { useRef, useState } from 'react';
 import { BsPlayCircleFill, BsStopCircleFill } from 'react-icons/bs';
 import { ImFloppyDisk } from 'react-icons/im';
@@ -87,27 +88,29 @@ export default function Home() {
             className="
           h-[400px] w-[441px] object-cover border-2"
           />
-          <section className="mt-10">
-            <div className="flex flex-row justify-center my-6">
-              {isRecording ? (
-                <button
-                  onClick={() => {
-                    stopVideo();
-                  }}
-                >
-                  <BsStopCircleFill size={30} />
+          <section className="mt-10 w-full flex justify-around">
+            <div>
+              <div className="flex flex-row justify-center my-6">
+                {isRecording ? (
+                  <button
+                    onClick={() => {
+                      stopVideo();
+                    }}
+                  >
+                    <BsStopCircleFill size={30} />
+                  </button>
+                ) : (
+                  <button onClick={startRecording}>
+                    <BsPlayCircleFill size={30} />
+                  </button>
+                )}
+                <button className="ml-8" onClick={() => stopRecording()}>
+                  <ImFloppyDisk size={30} />
                 </button>
-              ) : (
-                <button onClick={startRecording}>
-                  <BsPlayCircleFill size={30} />
-                </button>
-              )}
-              <button className="ml-8" onClick={() => stopRecording()}>
-                <ImFloppyDisk size={30} />
-              </button>
-            </div>
+              </div>
 
-            <ReadString />
+              <ReadString />
+            </div>
           </section>
         </div>
       </main>
