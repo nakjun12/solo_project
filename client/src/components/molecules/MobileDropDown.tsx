@@ -2,18 +2,15 @@ import type { dropDownList, dropDownValue, headerType } from '@/Type/typeList';
 import { useToggleMenu } from '@/lib/context/MenuContext';
 import { m } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { Fragment } from 'react';
 import { GrClose } from 'react-icons/Gr';
-
-
 export default function MobileDropDown({ dropDown, isOpen }: headerType) {
   const toggleMenu = useToggleMenu();
- const router = useRouter();
-const menuHandler = (address: string) => {
-  router.push(`${address}`);
-  toggleMenu(false);
-
-}
-
+  const router = useRouter();
+  const menuHandler = (address: string) => {
+    router.push(`${address}`);
+    toggleMenu(false);
+  };
 
   return (
     <>
@@ -38,25 +35,34 @@ const menuHandler = (address: string) => {
             }}
           >
             <GrClose size={'40px'} />
-            </button>
-            <div className='flex flex-col font-bold gap-6 mt-10 text-2xl'>
-            {dropDown?.map((item: dropDownList | null) => {
+          </button>
+          <div className="flex flex-col font-bold gap-6 mt-10 text-2xl">
+            {dropDown?.map((item: dropDownList | null, index: number) => {
               return (
-                <>
-                  {item?.dropDownList?.map((item: dropDownValue | null,index) => {
-if(!item){
-  return<></>
-}
+                <Fragment key={`${item?.title}${index}`}>
+                  {item?.dropDownList?.map(
+                    (item: dropDownValue | null, index) => {
+                      if (!item) {
+                        return <></>;
+                      }
 
-                    return <button onClick={()=>{ menuHandler(item.address)}} key={`${item.address}${index
-                    }`} className="text-left ml-4">
-                    {item.name}</button>;
-                  })}
-                </>
+                      return (
+                        <button
+                          onClick={() => {
+                            menuHandler(item.address);
+                          }}
+                          key={`${item.address}${index}`}
+                          className="text-left ml-4"
+                        >
+                          {item.name}
+                        </button>
+                      );
+                    },
+                  )}
+                </Fragment>
               );
             })}
-            </div>
-       
+          </div>
         </div>
       </m.div>
     </>
