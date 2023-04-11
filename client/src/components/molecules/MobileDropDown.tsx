@@ -3,7 +3,7 @@ import { useToggleMenu } from '@/lib/context/MenuContext';
 import { m } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
-import { GrClose } from 'react-icons/Gr';
+import { GrClose } from 'react-icons/gr';
 export default function MobileDropDown({ dropDown, isOpen }: headerType) {
   const toggleMenu = useToggleMenu();
   const router = useRouter();
