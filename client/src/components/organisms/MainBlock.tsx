@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import InterviewImage from '../../../public/image/interview.png';
-import techImage from '../../../public/image/tech.png';
+import InterviewImage from '../../../public/Image/interview.png';
+import techImage from '../../../public/Image/tech.png';
 import Block from '../atmos/Block';
 
 export default function MainBlock() {
