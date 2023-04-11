@@ -1,41 +1,27 @@
 import type { dropDownList, headerType } from '@/Type/typeList';
 import { swipeAnim } from '@/lib/Animate';
-import { useRect } from '@reach/rect';
 import cx from 'classnames';
 import { m } from 'framer-motion';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import DropDownList from './DropDownList';
 import SearchForm from './SearchForm';
 interface props extends headerType {
-  headerheight: number | undefined;
-
   data: dropDownList;
 }
 
-export default function DropDownMenu({ data, title, headerheight }: props) {
-  const dropDownRef = useRef<HTMLDivElement | null>(null);
-  const dropDownRect = useRect(dropDownRef);
+export default function DropDownMenu({ data, title }: props) {
   const [height, setheight] = useState<number>(10);
   const isTrue = data.title === title;
-  useEffect(() => {
-    if (dropDownRect?.height && headerheight && isTrue) {
-      setheight(Math.round(dropDownRect?.height + headerheight));
-    }
-  }, [dropDownRect]); //null에서 바뀌고나서만 작동
-  //isTrue 추가해서 초기에도 변동되게함
+  console.log(isTrue, title, data.title);
 
   useEffect(() => {
-    if (!isTrue) {
-      setheight(Math.round(headerheight || 45));
-      // console.log("headr", headerheight);
-    }
-    if (isTrue) {
-      if (dropDownRect?.height && headerheight) {
-        setheight(Math.round(dropDownRect?.height + headerheight));
-        // console.log("headr2", dropDownRect?.height + headerheight);
-      }
+    if (isTrue) setheight(60);
+    else {
+      setheight(10);
     }
   }, [isTrue]);
+  //null에서 바뀌고나서만 작동
+  //isTrue 추가해서 초기에도 변동되게함
 
   return (
     <Fragment>
@@ -47,10 +33,7 @@ export default function DropDownMenu({ data, title, headerheight }: props) {
       />
 
       <div className="relative z-30 max-w-6xl mx-auto">
-        <div
-          className={cx('absolute z-30', { invisible: !isTrue })}
-          ref={(ref) => (dropDownRef.current = ref)}
-        >
+        <div className={cx('absolute z-30', { invisible: !isTrue })}>
           <m.div
             initial="hide"
             animate={isTrue ? 'show' : 'hide'}
