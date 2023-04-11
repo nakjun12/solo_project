@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import styles from "./Stopwatch.module.css";
-import playTickSound from "../atmos/TickSound";
+import { Dispatch, SetStateAction, useEffect } from 'react';
+import playTickSound from '../atmos/TickSound';
+import styles from './Stopwatch.module.css';
 
 interface props {
   isActive: boolean;
@@ -38,7 +38,7 @@ const Stopwatch = ({
         clearInterval(interval);
       }
     };
-  }, [isActive]);
+  }, [isActive, setTime]);
 
   useEffect(() => {
     if (time !== 0 && time % 2 === 0 && isSoundOn) {
@@ -51,14 +51,14 @@ const Stopwatch = ({
     if (isActive) {
       setTime(0);
       if (current) {
-        current.value = "";
+        current.value = '';
       }
     }
     if (!isActive) {
-      setanswerValue("");
+      setanswerValue('');
       setTime(0);
       if (current) {
-        current.value = "";
+        current.value = '';
       }
     }
 
@@ -72,7 +72,7 @@ const Stopwatch = ({
         className={`${styles.btn} ${isActive ? styles.stop : styles.start}`}
         onClick={handleStartStop}
       >
-        {isActive ? "Stop" : "Start"}
+        {isActive ? 'Stop' : 'Start'}
       </button>
     </div>
   );

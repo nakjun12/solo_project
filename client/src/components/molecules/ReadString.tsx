@@ -24,7 +24,7 @@ const ReadString = () => {
       return index === quizIndex;
     });
     setQuiz(nextQuiz); //정답보려 할때는 안바귀게해야함
-  }, [next, level]);
+  }, [next, level, quizList]);
 
   const speakHandler = () => {
     speechSynthesis.cancel();

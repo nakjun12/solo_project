@@ -37,7 +37,7 @@ export default function Quiz() {
 
     if (!result) setQuiz(nextQuiz); //정답보려 할때는 안바귀게해야함
     setTime(0);
-  }, [next, isActive, level]);
+  }, [next, isActive, level, quizList, result]);
 
   useEffect(() => {
     if (answerValue !== '') {

@@ -67,11 +67,6 @@ const SiteContextProvider = ({ children }: { children?: JSX.Element }) => {
   );
 };
 
-function startContext() {
-  const { toggleState, toggle } = useContext(SiteContext);
-  return [toggleState, toggle];
-} //현재상황 보여줌
-
 //수정해주는 토글
 function useToggleMenu() {
   const {
@@ -102,12 +97,6 @@ const useToggleStart = () => {
   return toggle;
 };
 
-export {
-  SiteContextProvider,
-  startContext,
-  useSiteContext,
-  useToggleMenu,
-  useToggleStart,
-};
+export { SiteContextProvider, useSiteContext, useToggleMenu, useToggleStart };
 
 //헤더 관련과 메뉴가있음
