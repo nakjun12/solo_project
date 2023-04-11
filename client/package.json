@@ -29,6 +29,7 @@
     "@react-three/fiber": "^8.12.0",
     "@types/three": "^0.149.0",
     "autoprefixer": "^10.4.13",
+    "eslint-plugin-next": "^0.0.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
     "postcss-nesting": "^11.2.1",

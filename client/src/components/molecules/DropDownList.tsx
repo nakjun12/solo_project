@@ -1,4 +1,4 @@
-import type { dropDownValue } from '@/Type/typeList.d.ts';
+import type { dropDownValue } from '@/Type/typeList';
 import { useToggleMenu } from '@/lib/context/MenuContext';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
@@ -12,31 +12,29 @@ const DropDownList: React.FC<{ data: dropDownValue[]; isUp: boolean }> = ({
   const menuHandler = (address: string) => {
     router.push(`${address}`);
     toggleMenu(false);
-
-  }
+  };
   return (
-    <ul className='mt-12 ml-4'>
+    <ul className="mt-12 ml-4">
       {data.map((data, index) => {
         return (
           <li
             key={`${data.name}-${index}`}
             className={cx(
               { 'drop-downEvent': isUp },
-              { 'drop-noEvent': !isUp }
+              { 'drop-noEvent': !isUp },
             )}
           >
-          <div className="flex items-center">
-
-  <button
-    onClick={() => {
-      menuHandler(data.address);
-    }}
-    className="font-bold text-lg text-center"
-  >
-    {data.name}
-  </button>
-</div>
-</li>
+            <div className="flex items-center">
+              <button
+                onClick={() => {
+                  menuHandler(data.address);
+                }}
+                className="font-bold text-lg text-center"
+              >
+                {data.name}
+              </button>
+            </div>
+          </li>
         );
       })}
     </ul>

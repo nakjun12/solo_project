@@ -1,4 +1,4 @@
-import type { dropDownList, headerType } from '@/Type/typeList.d.ts';
+import type { dropDownList, headerType } from '@/Type/typeList';
 import DropDownMenu from './DropDownMenu';
 interface props extends headerType {
   headerheight: number | undefined;

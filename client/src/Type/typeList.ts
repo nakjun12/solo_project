@@ -1,4 +1,3 @@
-import type { title } from '@/lib/context/MenuContext';
 import { IconType } from 'react-icons/lib';
 
 export interface Quiz {

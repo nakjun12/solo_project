@@ -1,4 +1,4 @@
-import type { dropDownList, headerType } from '@/Type/typeList.d.ts';
+import type { dropDownList, headerType } from '@/Type/typeList';
 import { swipeAnim } from '@/lib/Animate';
 import { useRect } from '@reach/rect';
 import cx from 'classnames';
@@ -49,7 +49,7 @@ export default function DropDownMenu({ data, title, headerheight }: props) {
       <div className="relative z-30 max-w-6xl mx-auto">
         <div
           className={cx('absolute z-30', { invisible: !isTrue })}
-          ref={ref => (dropDownRef.current = ref)}
+          ref={(ref) => (dropDownRef.current = ref)}
         >
           <m.div
             initial="hide"

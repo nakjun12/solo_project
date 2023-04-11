@@ -1,4 +1,4 @@
-import type { dropDownList, headerType, title } from '@/Type/typeList.d.ts';
+import type { dropDownList, headerType, title } from '@/Type/typeList';
 import {
   Dispatch,
   SetStateAction,
@@ -107,7 +107,7 @@ export {
   startContext,
   useSiteContext,
   useToggleMenu,
-  useToggleStart
+  useToggleStart,
 };
 
 //헤더 관련과 메뉴가있음

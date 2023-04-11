@@ -3,7 +3,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 import type { title } from '@/Type/typeList';
 
-export default function Search({ title }: { title: title | null }) {
+export default function Search({ title }: { title: title | null | undefined }) {
   const toggleMenu = useToggleMenu();
   const searchToggle = () => {
     if (title !== 'Search') {

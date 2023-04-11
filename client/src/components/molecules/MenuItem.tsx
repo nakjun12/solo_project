@@ -1,4 +1,4 @@
-import type { title } from '@/Type/typeList.d.ts';
+import type { title } from '@/Type/typeList';
 import { useToggleMenu } from '@/lib/context/MenuContext';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';

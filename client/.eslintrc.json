@@ -1,34 +1,3 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "next/babel",
-    "next/core-web-vitals"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2021,
-    "sourceType": "module"
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "plugins": ["react/recommended"],
-  "rules": {
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ]
-      }
-    ]
-  }
+  "extends": ["next/babel", "next/core-web-vitals"]
 }
