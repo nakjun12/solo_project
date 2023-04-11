@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons/lib';
 
-export interface Quiz {
+export interface QuizDataType {
   id: number;
   question: string;
   answer: string;

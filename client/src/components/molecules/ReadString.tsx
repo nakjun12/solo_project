@@ -1,4 +1,4 @@
-import type { Level, Quiz } from '@/Type/typeList';
+import type { Level, QuizDataType } from '@/Type/typeList';
 import { quizData } from '@/lib/Dummy';
 import { speak } from '@/lib/Helpers';
 import { useEffect, useState } from 'react';
@@ -7,9 +7,9 @@ import RadioButton from '../atmos/RadioButton';
 const ReadString = () => {
   const [next, setNext] = useState<boolean>(false);
   const [level, setlevel] = useState<Level>('전체');
-  const [quiz, setQuiz] = useState<Quiz>();
+  const [quiz, setQuiz] = useState<QuizDataType>();
   const [isCheck, setIsCheck] = useState<boolean>(false);
-  const quizList: Quiz[] = quizData;
+  const quizList: QuizDataType[] = quizData;
 
   useEffect(() => {
     const filterQuiz = quizList.filter((el) => {
@@ -20,7 +20,7 @@ const ReadString = () => {
       return el.level === level;
     });
     const quizIndex = Math.floor(Math.random() * filterQuiz.length); //length 5면, 0~4까지 +1해서 1~5까지
-    const nextQuiz: Quiz | undefined = filterQuiz.find((el, index) => {
+    const nextQuiz: QuizDataType | undefined = filterQuiz.find((el, index) => {
       return index === quizIndex;
     });
     setQuiz(nextQuiz); //정답보려 할때는 안바귀게해야함

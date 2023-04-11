@@ -1,4 +1,4 @@
-import type { Level, Quiz } from '@/Type/typeList';
+import type { Level, QuizDataType } from '@/Type/typeList';
 import Stopwatch from '@/components/molecules/StopWatch';
 import { quizData } from '@/lib/Dummy';
 
@@ -8,7 +8,7 @@ import useWindowWidth from '../atmos/useWindowWidth';
 
 export default function Quiz() {
   const [answerValue, setanswerValue] = useState<string>('');
-  const [quiz, setQuiz] = useState<Quiz>();
+  const [quiz, setQuiz] = useState<QuizDataType>();
   const [next, setNext] = useState<boolean>(false);
   const [level, setlevel] = useState<Level>('전체');
   const answerinputRef = useRef<HTMLInputElement>(null);
@@ -18,7 +18,7 @@ export default function Quiz() {
   const [result, setResult] = useState<boolean>(false); //boolean 배열 고민할것
   const { current } = answerinputRef;
 
-  const quizList: Quiz[] = quizData;
+  const quizList: QuizDataType[] = quizData;
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Quiz() {
     });
 
     const quizIndex = Math.floor(Math.random() * filterQuiz.length); //length 5면, 0~4까지 +1해서 1~5까지
-    const nextQuiz: Quiz | undefined = filterQuiz.find((el, index) => {
+    const nextQuiz: QuizDataType | undefined = filterQuiz.find((el, index) => {
       return index === quizIndex;
     });
 
