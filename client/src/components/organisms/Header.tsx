@@ -1,7 +1,5 @@
 import type { MenuItemType, headerType } from '@/Type/typeList';
 import { useSiteContext, useToggleMenu } from '@/lib/context/MenuContext';
-import { useRect } from '@reach/rect';
-import { RefObject, useRef } from 'react';
 import { IoMdHome } from 'react-icons/Io';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import useWindowWidth from '../atmos/useWindowWidth';
@@ -10,9 +8,8 @@ import DropDown from '../molecules/DropDown';
 import MenuItem from '../molecules/MenuItem';
 import MobileDropDown from '../molecules/MobileDropDown';
 import Search from '../molecules/Search';
+
 export default function Header() {
-  const headerRef = useRef() as RefObject<HTMLDivElement>;
-  const headerRect = useRect(headerRef);
   const toggleMenu = useToggleMenu();
   const { isOpen, title, dropDown }: headerType = useSiteContext();
   const windowWidth = useWindowWidth();
@@ -38,7 +35,7 @@ export default function Header() {
   return (
     <>
       <div className="relative z-30 bg-pageBG">
-        <header className="max-w-6xl headerStyle" ref={headerRef}>
+        <header className="max-w-6xl headerStyle">
           <div className="flex relative">
             {menuItems &&
               menuItems.map((item: MenuItemType) => (
@@ -70,12 +67,7 @@ export default function Header() {
         windowWidth >= 640 &&
         title !== 'HOME' && ( // 이방식을 안쓰는 이유는 부드럽게 넘기지 못해서 이다.
           <>
-            <DropDown
-              title={title}
-              dropDown={dropDown}
-              headerheight={headerRect?.height}
-              isOpen={isOpen}
-            />
+            <DropDown title={title} dropDown={dropDown} isOpen={isOpen} />
           </>
         )}
       {windowWidth < 640 && windowWidth > 0 && (

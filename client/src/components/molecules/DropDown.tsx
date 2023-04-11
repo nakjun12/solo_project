@@ -1,16 +1,9 @@
 import type { dropDownList, headerType } from '@/Type/typeList';
 import DropDownMenu from './DropDownMenu';
-interface props extends headerType {
-  headerheight: number | undefined;
-}
+interface props extends headerType {}
 
-export default function DropDown({
-  title,
-  dropDown,
-  headerheight,
-  isOpen,
-}: props) {
-  if (title === null || headerheight === undefined) {
+export default function DropDown({ title, dropDown }: props) {
+  if (title === null) {
     return null;
   }
 
@@ -25,7 +18,6 @@ export default function DropDown({
             <DropDownMenu
               key={`${data.title}-${index}`}
               data={data}
-              headerheight={headerheight}
               title={title}
             />
           );
