@@ -12,7 +12,6 @@ interface props extends headerType {
 export default function DropDownMenu({ data, title }: props) {
   const [height, setheight] = useState<number>(10);
   const isTrue = data.title === title;
-  console.log(isTrue, title, data.title);
 
   useEffect(() => {
     if (isTrue) setheight(60);

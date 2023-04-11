@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import InterviewImage from '../../../public/image/interview.png';
+import techImage from '../../../public/image/tech.png';
 import Block from '../atmos/Block';
 
 export default function MainBlock() {
@@ -7,12 +9,7 @@ export default function MainBlock() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-40">
         <Block title={'기술 영상 추천'}>
           <a href="https://www.youtube.com/watch?v=4_WLS9Lj6n4" target="_blank">
-            <Image
-              src="/image/tech.png"
-              alt="유투브"
-              width={300}
-              height={180}
-            />
+            <Image src={techImage} alt="youtube" width={300} height={180} />
           </a>
         </Block>
         <Block title={'면접 자료 추천'}>
@@ -59,8 +56,8 @@ export default function MainBlock() {
             target="_blank"
           >
             <Image
-              src="/image/interview.png"
-              alt="유투브"
+              src={InterviewImage}
+              alt="youtube"
               width={300}
               height={180}
               className="max-w-full h-auto"
