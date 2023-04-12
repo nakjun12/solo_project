@@ -16,34 +16,31 @@
 ## **✨Feature✨**
 
 <details>
-<summary> 화상면접 </summary>
-<video width="320" height="240" controls>
-  <source src="C:\Users\wns45\Videos\Captures\메인.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-</details>
-<details>
+<summary> 화상면접 & 문제 읽어주는 기능 </summary>
+
+![화상면접](client/public/git/video.gif)
+
 <summary> 퀴즈 </summary>
 
-![메인페이지](https://github.com/Ksiyeong/FarmAndPeople-gif/blob/main/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.gif?raw=true)
+![퀴즈](client/public/git/quiz.gif)
 
 </details>
 <details>
 <summary> 메인화면 애니메이션 </summary>
 
-![상품검색](client/public/git/메인.gif)
+![메인](client/public/git/main.gif)
 
 </details>
 <details>
-<summary> DropDown & Page 애니메이션  </summary>
+<summary> DropDown & PageTransition 애니메이션  </summary>
 
-![특정물품페이지](https://github.com/Ksiyeong/FarmAndPeople-gif/blob/main/%ED%8A%B9%EC%A0%95%EB%AC%BC%ED%92%88%ED%8E%98%EC%9D%B4%EC%A7%80.gif?raw=true)
+![메인](client/public/git/dropdown.gif)
 
 </details>
 <details>
-<summary> 문제 읽어주기 </summary>
+<summary> Mobile DropDown 애니메이션 </summary>
 
-![장바구니페이지](https://github.com/Ksiyeong/FarmAndPeople-gif/blob/main/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88%ED%8E%98%EC%9D%B4%EC%A7%80.gif?raw=true)
+![모바일](client/public/git/mobile.gif)
 
 </details>
 
