@@ -19,7 +19,8 @@
 <summary> 화상면접 & 문제 읽어주는 기능 </summary>
 
 ![화상면접](client/public/git/video.gif)
-
+</details>
+<details>
 <summary> 퀴즈 </summary>
 
 ![퀴즈](client/public/git/quiz.gif)
