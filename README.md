@@ -44,6 +44,17 @@
 
 </details>
 
+<details>
+<summary> Three.js 애니메이션 </summary>
+
+주제와 상관없지만 아쉬워서 넣었습니다!
+https://solo-project-one.vercel.app/three
+기본 주소에 /three 추가하시면 볼 수 있습니다!
+
+![모바일](client/public/git/three.gif)
+
+</details>
+
 <br/>
 
 ## **🛠️ 기술 스택**
