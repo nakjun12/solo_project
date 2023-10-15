@@ -13,6 +13,12 @@
 
 <br/>
 
+- 메인 페이지, 퀴즈, 화상면접 페이지 작성
+- Video 태그를 활용하여 영상촬영 및 녹화기능 구현
+- Web Speech API 활용하여 문제 읽기 기능 구현
+- PageTransition, MainCarousel, DropDown show/hide 애니메이션 구현
+- 키워드 문제 알고리즘 구현
+
 ## **✨Feature✨**
 
 <details>
