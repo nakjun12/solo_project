@@ -45,7 +45,7 @@
 
 </details>
 <details>
-<summary> Mobile DropDown 애니메이션 </summary>
+<summary> Mobile 화면 </summary>
 
 ![모바일](client/public/git/mobile.gif)
 
