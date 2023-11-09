@@ -22,7 +22,7 @@
 ## **✨Feature✨**
 
 <details>
-<summary> 화상면접 & 문제 읽어주는 기능 </summary>
+<summary> 영상 녹화 & 문제 읽어주는 기능 </summary>
 
 ![화상면접](client/public/git/video.gif)
 </details>
