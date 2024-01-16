@@ -2,12 +2,7 @@
 
 
 ### **✅ 프로젝트 개요**
-
-이전에 타 사이트에서는 기술면접 서비스가 있었지만 종료하였습니다.
-
-그래서 자체적으로 영상을 찍고 저장하는 사이트가 필요하다고 느껴서 만들었습니다.
-
-제 3 자가 물어 봐주었으면 좋겠다고 생각해서 읽기 기능과 간단한 퀴즈를 넣었습니다.
+기술면접을 준비하던 중, 제 3 자가 물어 봐주었으면 좋겠다고 생각해서 읽기 기능과 간단한 퀴즈를 넣었습니다.
 
 배포 링크 : https://solo-project-one.vercel.app/
 
@@ -21,37 +16,37 @@
 
 ## **✨Feature✨**
 
-<details>
+<details open>
 <summary> 영상 녹화 & 문제 읽어주는 기능 </summary>
 
 ![화상면접](client/public/git/video.gif)
 </details>
-<details>
+<details open>
 <summary> 퀴즈 </summary>
 
 ![퀴즈](client/public/git/quiz.gif)
 
 </details>
-<details>
+<details open>
 <summary> 메인화면 애니메이션 </summary>
 
 ![메인](client/public/git/main.gif)
 
 </details>
-<details>
+<details open>
 <summary> DropDown & PageTransition 애니메이션  </summary>
 
 ![메인](client/public/git/dropdown.gif)
 
 </details>
-<details>
+<details open>
 <summary> Mobile 화면 </summary>
 
 ![모바일](client/public/git/mobile.gif)
 
 </details>
 
-<details>
+<details open>
 <summary> Three.js 애니메이션 </summary>
 
 주제와 상관없지만 아쉬워서 넣었습니다!
